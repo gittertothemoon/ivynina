@@ -6,7 +6,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative isolate flex min-h-[100svh] items-center justify-center overflow-hidden px-6 pt-28 pb-44 sm:px-10 sm:pt-32 sm:pb-32"
+      className="relative isolate flex h-full items-center justify-center overflow-hidden px-6 pt-24 pb-28 sm:px-10 sm:pt-32 sm:pb-32"
     >
       <img
         src={logoMark}
@@ -16,15 +16,15 @@ export function HeroSection() {
       <img
         src={logoMark}
         alt="Ivy and Nina logotype"
-        className="absolute left-1/2 top-8 w-60 -translate-x-1/2 drop-shadow-[0_20px_44px_rgba(0,0,0,0.5)] sm:hidden"
+        className="absolute left-1/2 top-6 w-52 -translate-x-1/2 drop-shadow-[0_20px_44px_rgba(0,0,0,0.5)] sm:hidden"
       />
       {/* Contenuto centrale spostato ancora più in alto */}
-      <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col items-center gap-6 text-center">
-        <div className="space-y-4">
-          <h1 className="text-4xl font-semibold leading-tight text-blush sm:text-5xl md:text-6xl">
+      <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col items-center gap-4 text-center">
+        <div className="space-y-3">
+          <h1 className="text-3xl font-semibold leading-tight text-blush sm:text-5xl md:text-6xl">
             Real lovers. Real chemistry.
           </h1>
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-3">
             <a
               href="https://onlyfans.com/ivyandnina"
               target="_blank"
