@@ -4,13 +4,22 @@ import onlyFansBadge from '../assets/onlyfans-badge.png'
 export function UniversalFooter({ isHomePage = false }) {
   return (
     <footer className="relative z-10 w-full">
-      <div className="container-app">
+      <div className="container-app relative">
+        <a
+          href="https://onlyfans.com/ivyandnina"
+          target="_blank"
+          rel="noreferrer"
+          className="absolute bottom-[calc(env(safe-area-inset-bottom)+1rem)] left-0 inline-flex shrink-0 rounded-2xl transition-transform duration-200 hover:scale-[1.02] sm:hidden"
+        >
+          <img src={onlyFansBadge} alt="OnlyFans Badge" className="h-12 w-auto cursor-pointer" />
+        </a>
+
         <div className="flex flex-col items-center justify-between gap-6 py-6 sm:flex-row sm:items-start">
           <a
             href="https://onlyfans.com/ivyandnina"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex shrink-0 rounded-2xl transition-transform duration-200 hover:scale-[1.02]"
+            className="hidden shrink-0 rounded-2xl transition-transform duration-200 hover:scale-[1.02] sm:inline-flex"
           >
             <img src={onlyFansBadge} alt="OnlyFans Badge" className="h-12 w-auto cursor-pointer sm:h-20" />
           </a>
@@ -52,7 +61,7 @@ export function UniversalFooter({ isHomePage = false }) {
           <div className="h-px w-full bg-[#0aa3ff]/80" />
         </div>
 
-        <div className="pb-[calc(env(safe-area-inset-bottom)+1.5rem)] pt-4">
+        <div className="pb-[calc(env(safe-area-inset-bottom)+4.75rem)] pt-4 sm:pb-[calc(env(safe-area-inset-bottom)+1.5rem)]">
           <div className="flex flex-col items-center justify-center gap-2 text-center text-xs text-blush/70 sm:flex-row sm:gap-3 sm:text-sm">
             <span>ALL RIGHTS RESERVED 2025 DESIGNED WITH LOVE BY</span>
             <button

@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { AgeGate } from './components/AgeGate'
 import { BackgroundCarousel, BackgroundOverlay } from './components/Layout'
 import { MainNav } from './components/MainNav'
-import { HeroSection, FloatingCTA } from './components/HeroSection'
+import { HeroSection } from './components/HeroSection'
 import { UniversalFooter } from './components/UniversalFooter'
 
 // Pages
@@ -124,7 +124,6 @@ function App() {
       <div className="fixed bottom-0 left-0 right-0 z-10">
         <UniversalFooter isHomePage={true} />
       </div>
-      <FloatingCTA />
     </div>
   )
 }

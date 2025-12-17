@@ -1,4 +1,3 @@
-import { SiOnlyfans } from 'react-icons/si'
 import { ArrowIcon } from './Icons'
 import logoMark from '../assets/ivy-nina-logo.svg'
 
@@ -49,20 +48,5 @@ export function HeroSection() {
         </p>
       </div>
     </section>
-  )
-}
-
-export function FloatingCTA() {
-  return (
-    <a
-      href="https://onlyfans.com/ivyandnina"
-      target="_blank"
-      rel="noreferrer"
-      className="fixed bottom-[calc(env(safe-area-inset-bottom)+6.5rem)] right-6 z-40 inline-flex items-center gap-3 rounded-full bg-espresso px-6 py-3 text-sm font-semibold text-blush shadow-embrace transition-colors duration-200 hover:bg-espresso/90 sm:hidden"
-    >
-      <SiOnlyfans className="h-5 w-5" />
-      Join Ivy &amp; Nina
-      <ArrowIcon className="h-4 w-4" />
-    </a>
   )
 }
