@@ -1,19 +1,10 @@
-import { SiInstagram, SiOnlyfans, SiTelegram } from 'react-icons/si'
+import { SiInstagram, SiTelegram } from 'react-icons/si'
 import onlyFansBadge from '../assets/onlyfans-badge.png'
 
 export function UniversalFooter({ isHomePage = false }) {
   return (
     <footer className="relative z-10 w-full">
       <div className="container-app relative">
-        <a
-          href="https://onlyfans.com/ivyandnina"
-          target="_blank"
-          rel="noreferrer"
-          className="absolute bottom-[calc(env(safe-area-inset-bottom)+1rem)] left-0 inline-flex shrink-0 rounded-2xl transition-transform duration-200 hover:scale-[1.02] sm:hidden"
-        >
-          <img src={onlyFansBadge} alt="OnlyFans Badge" className="h-12 w-auto cursor-pointer" />
-        </a>
-
         <div className="flex flex-col items-center justify-between gap-6 py-6 sm:flex-row sm:items-start">
           <a
             href="https://onlyfans.com/ivyandnina"
@@ -44,16 +35,24 @@ export function UniversalFooter({ isHomePage = false }) {
             </div>
           </div>
 
-          <div className="flex shrink-0 items-center gap-2">
-            <a href="https://onlyfans.com/ivyandnina" target="_blank" rel="noreferrer" className="icon-link">
-              <SiOnlyfans className="h-6 w-6" />
+          <div className="flex w-full shrink-0 items-center justify-between sm:w-auto sm:justify-start sm:gap-2">
+            <a
+              href="https://onlyfans.com/ivyandnina"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex shrink-0 rounded-2xl transition-transform duration-200 hover:scale-[1.02] sm:hidden"
+            >
+              <img src={onlyFansBadge} alt="OnlyFans Badge" className="h-12 w-auto cursor-pointer" />
             </a>
-            <a href="https://www.instagram.com/ivyandnina/" target="_blank" rel="noreferrer" className="icon-link">
-              <SiInstagram className="h-6 w-6" />
-            </a>
-            <a href="https://t.me/ivyandnina" target="_blank" rel="noreferrer" className="icon-link">
-              <SiTelegram className="h-6 w-6" />
-            </a>
+
+            <div className="flex items-center gap-2">
+              <a href="https://www.instagram.com/ivyandnina/" target="_blank" rel="noreferrer" className="icon-link">
+                <SiInstagram className="h-6 w-6" />
+              </a>
+              <a href="https://t.me/ivyandnina" target="_blank" rel="noreferrer" className="icon-link">
+                <SiTelegram className="h-6 w-6" />
+              </a>
+            </div>
           </div>
         </div>
 
