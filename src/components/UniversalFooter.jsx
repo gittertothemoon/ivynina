@@ -15,7 +15,7 @@ export function UniversalFooter({ isHomePage = false }) {
             <img src={onlyFansBadge} alt="OnlyFans Badge" className="h-12 w-auto cursor-pointer sm:h-20" />
           </a>
 
-          <div className="flex flex-1 items-center justify-center translate-y-2 sm:translate-y-0">
+          <div className="hidden flex-1 items-center justify-center sm:flex">
             <div className="flex items-center justify-center gap-3 rounded-full border border-white/10 bg-espresso/40 px-4 py-2 text-xs text-blush/70 backdrop-blur-sm">
               <button
                 type="button"
@@ -35,7 +35,7 @@ export function UniversalFooter({ isHomePage = false }) {
             </div>
           </div>
 
-          <div className="flex w-full shrink-0 items-center justify-between sm:w-auto sm:justify-start sm:gap-2">
+          <div className="relative flex w-full shrink-0 items-center justify-between sm:w-auto sm:justify-start sm:gap-2">
             <a
               href="https://onlyfans.com/ivyandnina"
               target="_blank"
@@ -44,6 +44,26 @@ export function UniversalFooter({ isHomePage = false }) {
             >
               <img src={onlyFansBadge} alt="OnlyFans Badge" className="h-12 w-auto cursor-pointer" />
             </a>
+
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 sm:hidden">
+              <div className="flex items-center justify-center gap-3 rounded-full border border-white/10 bg-espresso/40 px-4 py-2 text-xs text-blush/70 backdrop-blur-sm">
+                <button
+                  type="button"
+                  className="text-blush/90 transition hover:text-caramel"
+                  onClick={() => console.log('Italiano selezionato')}
+                >
+                  IT
+                </button>
+                <span className="text-blush/40">|</span>
+                <button
+                  type="button"
+                  className="text-blush/70 transition hover:text-caramel"
+                  onClick={() => console.log('English selezionato')}
+                >
+                  EN
+                </button>
+              </div>
+            </div>
 
             <div className="flex items-center gap-2">
               <a href="https://www.instagram.com/ivyandnina/" target="_blank" rel="noreferrer" className="icon-link">
