@@ -96,7 +96,7 @@ export function MainNav({ onOpenSection, currentPage, showLogo = false, isFixed 
               onClick={handleNavigateHomeSafe}
               className="flex items-center justify-center rounded-xl transition-transform duration-200 hover:scale-[1.02]"
             >
-              <img src={logoMark} alt="Ivy & Nina" className="h-14 w-auto" />
+              <img src={logoMark} alt="Ivy & Nina" className="h-28 w-auto" />
             </button>
           ) : null}
 
