@@ -52,6 +52,27 @@ function App() {
     return undefined
   }, [ageChecked, hasConsent])
 
+  useEffect(() => {
+    if (!hasConsent || typeof document === 'undefined') {
+      return undefined
+    }
+
+    if (currentPage !== 'home') {
+      return undefined
+    }
+
+    const previousHtmlOverflow = document.documentElement.style.overflow
+    const previousBodyOverflow = document.body.style.overflow
+
+    document.documentElement.style.overflow = 'hidden'
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.documentElement.style.overflow = previousHtmlOverflow
+      document.body.style.overflow = previousBodyOverflow
+    }
+  }, [currentPage, hasConsent])
+
   const handleConfirmAge = useCallback(() => {
     setHasConsent(true)
     try {
