@@ -15,7 +15,7 @@ import { ScenesPage } from './pages/ScenesPage'
 import { StoryPage } from './pages/StoryPage'
 
 // Utils
-import { AGE_GATE_KEY, heroBackgrounds } from './utils/constants'
+import { AGE_GATE_KEY, homeBackgrounds } from './utils/constants'
 
 function App() {
   const [ageChecked, setAgeChecked] = useState(false)
@@ -136,7 +136,7 @@ function App() {
   // Show main home page
   return (
     <div className="relative flex h-[100svh] flex-col overflow-hidden">
-      <BackgroundCarousel images={heroBackgrounds} />
+      <BackgroundCarousel images={homeBackgrounds} />
       <BackgroundOverlay />
       <MainNav onOpenSection={handleOpenSection} currentPage={currentPage} />
       <main className="relative flex-1 overflow-hidden">

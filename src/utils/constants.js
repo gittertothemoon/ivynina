@@ -10,6 +10,15 @@ export const navLinks = [
   { label: 'Connect', section: 'connect' },
 ]
 
+const homeBackgroundModules = import.meta.glob('../assets/home/*.{jpg,JPG,jpeg,JPEG,png,webp,avif}', {
+  eager: true,
+  import: 'default',
+})
+
+export const homeBackgrounds = Object.entries(homeBackgroundModules)
+  .sort(([pathA], [pathB]) => pathA.localeCompare(pathB))
+  .map(([, url]) => url)
+
 export const heroBackgrounds = [
   'https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=2200&q=85',
   'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=2200&q=85',

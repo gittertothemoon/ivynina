@@ -194,7 +194,7 @@ export function MainNav({ onOpenSection, currentPage, showLogo = false, isFixed 
             <nav
               id={mobileMenuId}
               aria-label="Navigation menu"
-              className="absolute left-0 right-0 top-4 z-40 rounded-2xl border border-white/10 bg-espresso/70 p-4 shadow-[0_24px_64px_-40px_rgba(5,2,0,0.85)] backdrop-blur-md"
+              className="absolute left-0 right-0 top-4 z-40 rounded-2xl border border-white/10 bg-espresso/90 p-4 shadow-[0_24px_64px_-40px_rgba(5,2,0,0.85)] backdrop-blur-md"
             >
               <div className="flex flex-col gap-2 text-[11px] uppercase tracking-[0.26em] text-blush/80">
                 {navLinks.map((link) => {
@@ -222,7 +222,7 @@ export function MainNav({ onOpenSection, currentPage, showLogo = false, isFixed 
                   href="https://onlyfans.com/ivyandnina"
                   target="_blank"
                   rel="noreferrer"
-                  className="btn btn-dark w-full justify-center px-6 py-3 text-xs uppercase tracking-[0.35em]"
+                  className="btn w-full justify-center bg-[#00AFF0] px-6 py-3 text-xs uppercase tracking-[0.35em] text-white shadow-embrace hover:bg-[#009ad8]"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Join OnlyFans
