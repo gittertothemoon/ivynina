@@ -15,7 +15,7 @@ export function UniversalFooter({ isHomePage = false }) {
             <img src={onlyFansBadge} alt="OnlyFans Badge" className="h-12 w-auto cursor-pointer sm:h-20" />
           </a>
 
-          <div className="order-2 flex w-full items-center justify-center sm:order-none sm:flex-1">
+          <div className="flex flex-1 items-center justify-center translate-y-2 sm:translate-y-0">
             <div className="flex items-center justify-center gap-3 rounded-full border border-white/10 bg-espresso/40 px-4 py-2 text-xs text-blush/70 backdrop-blur-sm">
               <button
                 type="button"
@@ -35,7 +35,7 @@ export function UniversalFooter({ isHomePage = false }) {
             </div>
           </div>
 
-          <div className="order-1 flex w-full shrink-0 items-center justify-between sm:order-none sm:w-auto sm:justify-start sm:gap-2">
+          <div className="flex w-full shrink-0 items-center justify-between sm:w-auto sm:justify-start sm:gap-2">
             <a
               href="https://onlyfans.com/ivyandnina"
               target="_blank"
