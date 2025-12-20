@@ -1,6 +1,6 @@
 import { SiInstagram, SiTelegram } from 'react-icons/si'
 import onlyFansBadge from '../assets/onlyfans-badge.png'
-import { useI18n } from '../i18n/index.jsx'
+import { useI18n } from '../i18n/useI18n'
 
 export function UniversalFooter({ isHomePage = false }) {
   const { setLocale, t } = useI18n()

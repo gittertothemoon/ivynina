@@ -1,4 +1,5 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import { I18nContext } from './context'
 import { en } from './locales/en'
 import { it } from './locales/it'
 
@@ -64,8 +65,6 @@ function translate(locale, key, variables) {
   return interpolate(rawValue, variables)
 }
 
-const I18nContext = createContext(null)
-
 function readStoredLocale() {
   try {
     const stored = window.localStorage.getItem(STORAGE_KEY)
@@ -105,23 +104,15 @@ export function I18nProvider({ children }) {
 
     if (seoTitle) document.title = seoTitle
 
-    const descriptionTag = document.querySelector('meta[name=\"description\"]')
+    const descriptionTag = document.querySelector('meta[name="description"]')
     if (descriptionTag && seoDescription) descriptionTag.setAttribute('content', seoDescription)
 
-    const ogTitleTag = document.querySelector('meta[property=\"og:title\"]')
+    const ogTitleTag = document.querySelector('meta[property="og:title"]')
     if (ogTitleTag && ogTitle) ogTitleTag.setAttribute('content', ogTitle)
 
-    const ogDescriptionTag = document.querySelector('meta[property=\"og:description\"]')
+    const ogDescriptionTag = document.querySelector('meta[property="og:description"]')
     if (ogDescriptionTag && ogDescription) ogDescriptionTag.setAttribute('content', ogDescription)
   }, [locale])
 
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>
-}
-
-export function useI18n() {
-  const context = useContext(I18nContext)
-  if (!context) {
-    throw new Error('useI18n must be used within an I18nProvider')
-  }
-  return context
 }

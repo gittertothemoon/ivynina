@@ -2,7 +2,7 @@ import { useEffect, useId, useState } from 'react'
 import { navLinks } from '../utils/constants'
 import { ArrowIcon } from './Icons'
 import logoMark from '../assets/ivy-nina-logo.svg'
-import { useI18n } from '../i18n/index.jsx'
+import { useI18n } from '../i18n/useI18n'
 
 export function MainNav({ onOpenSection, currentPage, showLogo = false, isFixed = true, onNavigateHome }) {
   const [isSolid, setIsSolid] = useState(false)

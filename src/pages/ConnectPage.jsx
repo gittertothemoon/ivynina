@@ -6,7 +6,7 @@ import { MainNav } from '../components/MainNav'
 import { UniversalFooter } from '../components/UniversalFooter'
 import { FadeIn } from '../components/animations/ScrollAnimations'
 import { heroBackgrounds } from '../utils/constants'
-import { useI18n } from '../i18n/index.jsx'
+import { useI18n } from '../i18n/useI18n'
 
 export function ConnectPage({ onNavigateHome, onOpenSection }) {
   const [formData, setFormData] = useState({

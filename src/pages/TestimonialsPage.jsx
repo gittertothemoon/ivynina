@@ -6,7 +6,7 @@ import { UniversalFooter } from '../components/UniversalFooter'
 import { FadeIn, StaggeredReveal } from '../components/animations/ScrollAnimations'
 import { ArrowIcon } from '../components/Icons'
 import { heroBackgrounds } from '../utils/constants'
-import { useI18n } from '../i18n/index.jsx'
+import { useI18n } from '../i18n/useI18n'
 
 export function TestimonialsPage({ onNavigateHome, onOpenSection }) {
   const [selectedFilter, setSelectedFilter] = useState('all')
@@ -280,7 +280,4 @@ export function TestimonialsPage({ onNavigateHome, onOpenSection }) {
         </div>
       </main>
       
-      <UniversalFooter isHomePage={true} />
-    </div>
-  )
-}
+      <UniversalFooter isHomePage={

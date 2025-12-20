@@ -6,7 +6,7 @@ import { UniversalFooter } from '../components/UniversalFooter'
 import { FadeIn } from '../components/animations/ScrollAnimations'
 import { ArrowIcon } from '../components/Icons'
 import { heroBackgrounds } from '../utils/constants'
-import { useI18n } from '../i18n/index.jsx'
+import { useI18n } from '../i18n/useI18n'
 
 export function ScenesPage({ onNavigateHome, onOpenSection }) {
   const [selectedCategory, setSelectedCategory] = useState('all')
@@ -485,29 +485,4 @@ export function ScenesPage({ onNavigateHome, onOpenSection }) {
                 <a
                   href="https://onlyfans.com/ivyandnina"
                   target="_blank"
-                  rel="noreferrer"
-                  className="btn btn-primary w-full sm:w-auto"
-	                >
-	                  <SiOnlyfans className="h-4 w-4" />
-	                  {t('pages.scenes.modal.watchOnOnlyFans')}
-	                </a>
-                <button
-                  type="button"
-                  onClick={(event) => {
-                    event.stopPropagation()
-                    setSelectedScene(null)
-                  }}
-	                  className="btn btn-outline w-full sm:w-auto"
-	                >
-	                  {t('pages.scenes.modal.close')}
-	                </button>
-	              </div>
-            </div>
-          </div>
-        </div>
-      )}
-      
-      <UniversalFooter isHomePage={true} />
-    </div>
-  )
-}
+                  rel="

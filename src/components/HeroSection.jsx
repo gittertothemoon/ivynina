@@ -1,6 +1,6 @@
 import { ArrowIcon } from './Icons'
 import logoMark from '../assets/ivy-nina-logo.svg'
-import { useI18n } from '../i18n/index.jsx'
+import { useI18n } from '../i18n/useI18n'
 
 export function HeroSection() {
   const { t } = useI18n()

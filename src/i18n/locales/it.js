@@ -278,9 +278,9 @@ export const it = {
         timeline: {
           select: 'Seleziona tempistiche',
           asap: 'Il prima possibile',
-          1_2weeks: '1–2 settimane',
-          1month: '1 mese',
-          2_3months: '2–3 mesi',
+          '1_2weeks': '1–2 settimane',
+          '1month': '1 mese',
+          '2_3months': '2–3 mesi',
           flexible: 'Flessibile',
         },
         fields: {
