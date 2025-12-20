@@ -227,4 +227,16 @@ export function MainNav({ onOpenSection, currentPage, showLogo = false, isFixed 
                   target="_blank"
                   rel="noreferrer"
                   className="btn w-full justify-center bg-[#00AFF0] px-6 py-3 text-xs uppercase tracking-[0.35em] text-white shadow-embrace hover:bg-[#009ad8]"
-                  onClick={() => setIsMenuOpen(f
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {t('nav.joinOnlyFans')}
+                  <ArrowIcon className="h-3.5 w-3.5" />
+                </a>
+              </div>
+            </nav>
+          </div>
+        ) : null}
+      </div>
+    </header>
+  )
+}

@@ -130,4 +130,23 @@ function App() {
   }
   
   if (currentPage === 'connect') {
-    return <ConnectPage onN
+    return <ConnectPage onNavigateHome={handleNavigateHome} onOpenSection={handleOpenSection} />
+  }
+
+  // Show main home page
+  return (
+    <div className="relative flex h-[100svh] flex-col overflow-hidden">
+      <BackgroundCarousel images={homeBackgrounds} />
+      <BackgroundOverlay />
+      <MainNav onOpenSection={handleOpenSection} currentPage={currentPage} />
+      <main className="relative flex-1 overflow-hidden">
+        <HeroSection />
+      </main>
+      <div className="fixed bottom-0 left-0 right-0 z-10">
+        <UniversalFooter isHomePage={true} />
+      </div>
+    </div>
+  )
+}
+
+export default App

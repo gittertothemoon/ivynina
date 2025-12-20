@@ -73,4 +73,29 @@ export function UniversalFooter({ isHomePage = false }) {
                 <SiInstagram className="h-6 w-6" />
               </a>
               <a href="https://t.me/ivyandnina" target="_blank" rel="noreferrer" className="icon-link">
-                <SiTelegram className="h-6 w-
+                <SiTelegram className="h-6 w-6" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className={`${isHomePage ? 'mt-6' : 'mt-4'}`}>
+          <div className="h-px w-full bg-[#0aa3ff]/80" />
+        </div>
+
+        <div className="pb-[calc(env(safe-area-inset-bottom)+4.75rem)] pt-4 sm:pb-[calc(env(safe-area-inset-bottom)+1.5rem)]">
+          <div className="flex flex-col items-center justify-center gap-2 text-center text-xs text-blush/70 sm:flex-row sm:gap-3 sm:text-sm">
+            <span>{t('footer.rightsLine')}</span>
+            <button
+              type="button"
+              className="font-bold text-caramel transition-colors hover:text-sienna"
+              onClick={() => console.log('PIONIO clicked')}
+            >
+              PIONIO
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+  )
+}
