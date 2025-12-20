@@ -65,7 +65,9 @@ export function MainNav({ onOpenSection, currentPage, showLogo = false, isFixed 
   const headerClasses = `${positionClasses} bg-transparent transition-colors duration-200 ${
     isSolid
       ? 'bg-espresso/55 backdrop-blur-md shadow-[0_24px_64px_-40px_rgba(5,2,0,0.85)]'
-      : 'bg-espresso/20 backdrop-blur-sm'
+      : currentPage === 'home'
+        ? 'bg-transparent sm:bg-espresso/20 sm:backdrop-blur-sm'
+        : 'bg-espresso/20 backdrop-blur-sm'
   }`
 
   const handleNavigateMobile = (section) => {
