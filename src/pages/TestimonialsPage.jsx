@@ -280,4 +280,7 @@ export function TestimonialsPage({ onNavigateHome, onOpenSection }) {
         </div>
       </main>
       
-      <UniversalFooter isHomePage={
+      <UniversalFooter isHomePage={true} />
+    </div>
+  )
+}

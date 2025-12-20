@@ -782,4 +782,35 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                       <div className="relative mt-14 sm:mt-20">
                         <div className="absolute inset-0 bg-gradient-to-r from-caramel to-sienna rounded-full blur-2xl opacity-40 scale-125"></div>
                         <a
-                         
+                          href="https://onlyfans.com/ivyandnina"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="relative inline-flex items-center gap-4 rounded-full bg-gradient-to-r from-caramel to-sienna px-10 py-5 text-lg font-bold text-espresso shadow-lift transition-all duration-200 hover:from-caramel/90 hover:to-sienna/90 hover:-translate-y-1 hover:shadow-embrace motion-safe:hover:scale-[1.02] sm:px-12 sm:py-6 sm:text-xl group"
+                        >
+                          <SiOnlyfans className="h-6 w-6 group-hover:rotate-12 transition-transform duration-500" />
+                          <span>{t('pages.story.join.cta')}</span>
+                          <svg className="h-6 w-6 group-hover:translate-x-2 transition-transform duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </SmoothReveal>
+              </div>
+            </SimpleParallax>
+          </div>
+        </div>
+        
+        {/* Floating Elements for Visual Interest */}
+        <div className="fixed inset-0 pointer-events-none -z-[1] overflow-hidden">
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-caramel/5 rounded-full blur-3xl motion-safe:animate-pulse"></div>
+          <div className="absolute top-3/4 right-1/4 w-48 h-48 bg-blush/5 rounded-full blur-3xl motion-safe:animate-pulse" style={{animationDelay: '2s'}}></div>
+          <div className="absolute bottom-1/4 left-1/3 w-24 h-24 bg-sienna/5 rounded-full blur-3xl motion-safe:animate-pulse" style={{animationDelay: '4s'}}></div>
+        </div>
+      </main>
+      
+      <UniversalFooter isHomePage={false} />
+    </div>
+  )
+}

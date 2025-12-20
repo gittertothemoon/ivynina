@@ -485,4 +485,29 @@ export function ScenesPage({ onNavigateHome, onOpenSection }) {
                 <a
                   href="https://onlyfans.com/ivyandnina"
                   target="_blank"
-                  rel="
+                  rel="noreferrer"
+                  className="btn btn-primary w-full sm:w-auto"
+	                >
+	                  <SiOnlyfans className="h-4 w-4" />
+	                  {t('pages.scenes.modal.watchOnOnlyFans')}
+	                </a>
+                <button
+                  type="button"
+                  onClick={(event) => {
+                    event.stopPropagation()
+                    setSelectedScene(null)
+                  }}
+	                  className="btn btn-outline w-full sm:w-auto"
+	                >
+	                  {t('pages.scenes.modal.close')}
+	                </button>
+	              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      
+      <UniversalFooter isHomePage={true} />
+    </div>
+  )
+}
