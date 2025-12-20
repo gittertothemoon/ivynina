@@ -10,8 +10,11 @@ import {
   SimpleParallax 
 } from '../components/animations/ScrollAnimations'
 import { heroBackgrounds } from '../utils/constants'
+import { useI18n } from '../i18n/index.jsx'
 
 export function StoryPage({ onNavigateHome, onOpenSection }) {
+  const { t } = useI18n()
+
   return (
     <div className="relative min-h-screen bg-espresso overflow-hidden">
       <BackgroundCarousel images={heroBackgrounds} />
@@ -24,30 +27,30 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
           <FadeIn>
             <div className="text-center mb-14 sm:mb-20">
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-blush via-caramel to-sienna bg-clip-text text-transparent leading-tight mb-6 sm:mb-8">
-                Our Story
+                {t('pages.story.hero.title')}
               </h1>
               <p className="text-lg text-blush/80 leading-relaxed max-w-3xl mx-auto mb-10 sm:text-xl sm:mb-12">
-                Two hearts, one journey—authentic connection captured with artistry.
+                {t('pages.story.hero.subtitle')}
               </p>
               
               {/* Hero Stats */}
               <div className="grid grid-cols-1 gap-6 md:grid-cols-3 sm:gap-8 mt-12 sm:mt-16">
                 <div className="group">
-                  <div className="card-compact ring-1 ring-caramel/15 transition-colors duration-200 group-hover:border-caramel/20 group-hover:ring-caramel/25">
-                    <div className="text-4xl font-bold text-caramel mb-2 sm:text-5xl">2+</div>
-                    <p className="text-blush/80">Years Together</p>
+                    <div className="card-compact ring-1 ring-caramel/15 transition-colors duration-200 group-hover:border-caramel/20 group-hover:ring-caramel/25">
+                      <div className="text-4xl font-bold text-caramel mb-2 sm:text-5xl">2+</div>
+                    <p className="text-blush/80">{t('pages.story.hero.stats.yearsTogether')}</p>
                   </div>
                 </div>
                 <div className="group">
                   <div className="card-compact ring-1 ring-blush/10 transition-colors duration-200 group-hover:border-blush/20 group-hover:ring-blush/20">
                     <div className="text-4xl font-bold text-blush mb-2 sm:text-5xl">10K+</div>
-                    <p className="text-blush/80">Community Members</p>
+                    <p className="text-blush/80">{t('pages.story.hero.stats.communityMembers')}</p>
                   </div>
                 </div>
                 <div className="group">
                   <div className="card-compact ring-1 ring-sienna/15 transition-colors duration-200 group-hover:border-sienna/20 group-hover:ring-sienna/25">
                     <div className="text-4xl font-bold text-sienna mb-2 sm:text-5xl">∞</div>
-                    <p className="text-blush/80">Authentic Moments</p>
+                    <p className="text-blush/80">{t('pages.story.hero.stats.authenticMoments')}</p>
                   </div>
                 </div>
               </div>
@@ -65,7 +68,7 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                   <div className="aspect-[4/5] rounded-3xl border border-caramel/50 sm:border-2 overflow-hidden shadow-lift group">
                     <img
                       src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=1000&fit=crop&crop=center"
-                      alt="Our beginning"
+                      alt={t('pages.story.beginning.images.beginningAlt')}
                       loading="lazy"
                       decoding="async"
                       className="w-full h-full object-cover transition-transform duration-700 motion-safe:group-hover:scale-[1.03]"
@@ -75,7 +78,7 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                   <div className="aspect-[4/5] rounded-3xl border border-blush/50 sm:border-2 overflow-hidden shadow-lift group">
                     <img
                       src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&h=1000&fit=crop&crop=center"
-                      alt="Our connection"
+                      alt={t('pages.story.beginning.images.connectionAlt')}
                       loading="lazy"
                       decoding="async"
                       className="w-full h-full object-cover transition-transform duration-700 motion-safe:group-hover:scale-[1.03]"
@@ -96,23 +99,23 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                             </svg>
                           </div>
-                          <h3 className="text-2xl sm:text-3xl font-bold text-caramel mb-3">Our Beginning</h3>
+                          <h3 className="text-2xl sm:text-3xl font-bold text-caramel mb-3">{t('pages.story.beginning.card.title')}</h3>
                         </div>
                         <p className="text-lg text-blush/90 leading-relaxed">
-                          A friendship became something deeper: two people craving authenticity, not performance.
+                          {t('pages.story.beginning.card.subtitle')}
                         </p>
                         <div className="space-y-4">
                           <div className="flex items-start gap-3">
                             <div className="w-2 h-2 rounded-full bg-caramel mt-3 flex-shrink-0"></div>
-                            <p className="text-base text-blush/80">Met through mutual friends—instant chemistry</p>
+                            <p className="text-base text-blush/80">{t('pages.story.beginning.card.bullets.1')}</p>
                           </div>
                           <div className="flex items-start gap-3">
                             <div className="w-2 h-2 rounded-full bg-caramel mt-3 flex-shrink-0"></div>
-                            <p className="text-base text-blush/80">Shared values: honesty, consent, emotional closeness</p>
+                            <p className="text-base text-blush/80">{t('pages.story.beginning.card.bullets.2')}</p>
                           </div>
                           <div className="flex items-start gap-3">
                             <div className="w-2 h-2 rounded-full bg-caramel mt-3 flex-shrink-0"></div>
-                            <p className="text-base text-blush/80">Chose to share the journey with a respectful community</p>
+                            <p className="text-base text-blush/80">{t('pages.story.beginning.card.bullets.3')}</p>
                           </div>
                         </div>
                       </div>
@@ -141,17 +144,17 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                             <span className="text-2xl font-bold text-espresso">1</span>
                           </div>
                           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-caramel via-blush to-sienna bg-clip-text text-transparent">
-                            The Beginning
+                            {t('pages.story.chapter1.title')}
                           </h2>
                         </div>
                         
                         <div className="space-y-6">
                           <p className="text-lg text-blush/95 leading-relaxed sm:text-xl">
-                            <span className="text-caramel font-bold text-lg">"We realized we both craved something real,"</span> Nina reflects. "Less performance. More presence."
+                            <span className="text-caramel font-bold text-lg">{t('pages.story.chapter1.quoteLead')}</span> {t('pages.story.chapter1.quoteTail')}
                           </p>
                           
                           <p className="text-lg text-blush/80 leading-relaxed">
-                            Their first intimate moment wasn’t just physical—it was emotional, and it changed everything.
+                            {t('pages.story.chapter1.body')}
                           </p>
                           
                           <div className="card-compact ring-1 ring-caramel/10">
@@ -159,10 +162,10 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                               </svg>
-                              Their First Connection
+                              {t('pages.story.chapter1.card.title')}
                             </h4>
                             <p className="text-base text-blush/80 leading-relaxed">
-                              Nervous at first, then deeply connected. True intimacy is presence, trust, and care.
+                              {t('pages.story.chapter1.card.body')}
                             </p>
                           </div>
                         </div>
@@ -172,7 +175,7 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                       <div className="aspect-[4/5] rounded-3xl border border-caramel/50 sm:border-2 overflow-hidden shadow-lift group">
                         <img 
                           src="https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?w=800&h=1000&fit=crop&crop=center"
-                          alt="The beginning of our journey"
+                          alt={t('pages.story.chapter1.imageAlt')}
                           loading="lazy"
                           decoding="async"
                           className="w-full h-full object-cover transition-transform duration-700 motion-safe:group-hover:scale-[1.03]"
@@ -197,11 +200,11 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                       <span className="text-2xl font-bold text-espresso">2</span>
                     </div>
                     <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blush via-caramel to-sienna bg-clip-text text-transparent">
-                      The Decision
+                      {t('pages.story.chapter2.title')}
                     </h2>
                   </div>
                   <p className="text-lg text-blush/90 leading-relaxed max-w-4xl mx-auto sm:text-xl">
-                    Two perspectives, one decision: build a space for authentic intimacy.
+                    {t('pages.story.chapter2.subtitle')}
                   </p>
                 </div>
               </SmoothReveal>
@@ -215,15 +218,15 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                     <div className="col-span-2 row-span-1 group relative overflow-hidden rounded-2xl border border-caramel/50 shadow-lift sm:col-span-5 sm:row-span-2 sm:border-2">
                       <img 
                         src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop&crop=center"
-                        alt="Ivy's perspective"
+                        alt={t('pages.story.chapter2.gallery.ivyPerspectiveAlt')}
                         loading="lazy"
                         decoding="async"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-espresso/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                         <div className="absolute bottom-6 left-6 right-6">
-                          <h3 className="text-2xl font-bold text-caramel mb-2">Ivy's Vision</h3>
-                          <p className="text-sm text-blush/90">"Creating authentic intimacy"</p>
+                          <h3 className="text-2xl font-bold text-caramel mb-2">{t('pages.story.chapter2.gallery.ivyVisionTitle')}</h3>
+                          <p className="text-sm text-blush/90">{t('pages.story.chapter2.gallery.ivyVisionQuote')}</p>
                         </div>
                       </div>
                     </div>
@@ -231,14 +234,14 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                     <div className="col-span-2 row-span-1 group relative overflow-hidden rounded-2xl border border-blush/50 shadow-lift sm:col-span-4 sm:border-2">
                       <img 
                         src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&h=300&fit=crop&crop=center"
-                        alt="Connection moment"
+                        alt={t('pages.story.chapter2.gallery.connectionMomentAlt')}
                         loading="lazy"
                         decoding="async"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-r from-blush/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                         <div className="absolute bottom-4 left-4">
-                          <p className="text-sm font-bold text-white">First Connection</p>
+                          <p className="text-sm font-bold text-white">{t('pages.story.chapter2.gallery.firstConnectionLabel')}</p>
                         </div>
                       </div>
                     </div>
@@ -246,15 +249,15 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                     <div className="col-span-2 row-span-1 group relative overflow-hidden rounded-2xl border border-sienna/50 shadow-lift sm:col-span-3 sm:row-span-2 sm:border-2">
                       <img 
                         src="https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?w=400&h=700&fit=crop&crop=center"
-                        alt="Artistic expression"
+                        alt={t('pages.story.chapter2.gallery.artisticExpressionAlt')}
                         loading="lazy"
                         decoding="async"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-sienna/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                         <div className="absolute bottom-6 left-4 right-4">
-                          <h3 className="text-lg font-bold text-white mb-1">Artistic Soul</h3>
-                          <p className="text-xs text-blush/90">Beauty in authenticity</p>
+                          <h3 className="text-lg font-bold text-white mb-1">{t('pages.story.chapter2.gallery.artisticSoulTitle')}</h3>
+                          <p className="text-xs text-blush/90">{t('pages.story.chapter2.gallery.beautyInAuthenticity')}</p>
                         </div>
                       </div>
                     </div>
@@ -263,14 +266,14 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                     <div className="col-span-2 row-span-1 group relative overflow-hidden rounded-2xl border border-caramel/50 shadow-lift sm:col-span-4 sm:border-2">
                       <img 
                         src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=500&h=300&fit=crop&crop=face"
-                        alt="Decision making"
+                        alt={t('pages.story.chapter2.gallery.decisionMakingAlt')}
                         loading="lazy"
                         decoding="async"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-l from-caramel/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                         <div className="absolute bottom-4 right-4">
-                          <p className="text-sm font-bold text-white">The Decision</p>
+                          <p className="text-sm font-bold text-white">{t('pages.story.chapter2.title')}</p>
                         </div>
                       </div>
                     </div>
@@ -279,15 +282,15 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                     <div className="col-span-2 row-span-1 group relative overflow-hidden rounded-2xl border border-blush/50 shadow-lift sm:col-span-6 sm:border-2">
                       <img 
                         src="https://images.unsplash.com/photo-1506863530036-1efeddceb993?w=700&h=300&fit=crop&crop=center"
-                        alt="Together journey"
+                        alt={t('pages.story.chapter2.gallery.togetherJourneyAlt')}
                         loading="lazy"
                         decoding="async"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-r from-blush/30 via-transparent to-caramel/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-                          <h3 className="text-lg font-bold text-white text-center">Nina's Community</h3>
-                          <p className="text-sm text-blush/90 text-center">"Building meaningful connections"</p>
+                          <h3 className="text-lg font-bold text-white text-center">{t('pages.story.chapter2.gallery.ninaCommunityTitle')}</h3>
+                          <p className="text-sm text-blush/90 text-center">{t('pages.story.chapter2.gallery.ninaCommunityQuote')}</p>
                         </div>
                       </div>
                     </div>
@@ -295,14 +298,14 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                     <div className="col-span-2 row-span-1 group relative overflow-hidden rounded-2xl border border-sienna/50 shadow-lift sm:col-span-3 sm:border-2">
                       <img 
                         src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?w=400&h=300&fit=crop&crop=center"
-                        alt="Vulnerability"
+                        alt={t('pages.story.chapter2.gallery.vulnerabilityAlt')}
                         loading="lazy"
                         decoding="async"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-br from-sienna/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                         <div className="absolute bottom-4 left-4">
-                          <p className="text-sm font-bold text-white">Vulnerability</p>
+                          <p className="text-sm font-bold text-white">{t('pages.story.chapter2.gallery.vulnerabilityLabel')}</p>
                         </div>
                       </div>
                     </div>
@@ -310,14 +313,14 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                     <div className="col-span-2 row-span-1 group relative overflow-hidden rounded-2xl border border-caramel/50 shadow-lift sm:col-span-3 sm:border-2">
                       <img 
                         src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400&h=300&fit=crop&crop=center"
-                        alt="Shared moments"
+                        alt={t('pages.story.chapter2.gallery.sharedMomentsAlt')}
                         loading="lazy"
                         decoding="async"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-bl from-caramel/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                         <div className="absolute bottom-4 right-4">
-                          <p className="text-sm font-bold text-white">Trust</p>
+                          <p className="text-sm font-bold text-white">{t('pages.story.chapter2.gallery.trustLabel')}</p>
                         </div>
                       </div>
                     </div>
@@ -326,15 +329,15 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                     <div className="col-span-2 row-span-1 group relative overflow-hidden rounded-2xl border border-blush/50 shadow-lift sm:col-span-4 sm:row-span-2 sm:border-2">
                       <img 
                         src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=500&h=700&fit=crop&crop=center"
-                        alt="Nina's approach"
+                        alt={t('pages.story.chapter2.gallery.ninaApproachAlt')}
                         loading="lazy"
                         decoding="async"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-espresso/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                         <div className="absolute bottom-6 left-6 right-6">
-                          <h3 className="text-2xl font-bold text-blush mb-2">Nina's Heart</h3>
-                          <p className="text-sm text-caramel/90">"Building genuine community"</p>
+                          <h3 className="text-2xl font-bold text-blush mb-2">{t('pages.story.chapter2.gallery.ninaHeartTitle')}</h3>
+                          <p className="text-sm text-caramel/90">{t('pages.story.chapter2.gallery.ninaHeartQuote')}</p>
                         </div>
                       </div>
                     </div>
@@ -342,14 +345,14 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                     <div className="col-span-2 row-span-1 group relative overflow-hidden rounded-2xl border border-sienna/50 shadow-lift sm:col-span-5 sm:border-2">
                       <img 
                         src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=600&h=300&fit=crop&crop=center"
-                        alt="Shared vision"
+                        alt={t('pages.story.chapter2.gallery.sharedVisionAlt')}
                         loading="lazy"
                         decoding="async"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-l from-sienna/30 via-transparent to-blush/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-                          <h3 className="text-lg font-bold text-white text-center">Shared Vision</h3>
+                          <h3 className="text-lg font-bold text-white text-center">{t('pages.story.chapter2.gallery.sharedVisionTitle')}</h3>
                         </div>
                       </div>
                     </div>
@@ -357,14 +360,14 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                     <div className="col-span-2 row-span-1 group relative overflow-hidden rounded-2xl border border-caramel/50 shadow-lift sm:col-span-3 sm:border-2">
                       <img 
                         src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop&crop=center"
-                        alt="Future together"
+                        alt={t('pages.story.chapter2.gallery.futureTogetherAlt')}
                         loading="lazy"
                         decoding="async"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-tr from-caramel/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                         <div className="absolute bottom-4 left-4">
-                          <p className="text-sm font-bold text-white">Future</p>
+                          <p className="text-sm font-bold text-white">{t('pages.story.chapter2.gallery.futureLabel')}</p>
                         </div>
                       </div>
                     </div>
@@ -373,15 +376,15 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                     <div className="col-span-2 row-span-1 group relative overflow-hidden rounded-2xl border border-blush/50 shadow-lift sm:col-span-5 sm:border-2">
                       <img 
                         src="https://images.unsplash.com/photo-1494790108755-2616c669a1b1?w=600&h=300&fit=crop&crop=center"
-                        alt="The decision process"
+                        alt={t('pages.story.chapter2.gallery.decisionProcessAlt')}
                         loading="lazy"
                         decoding="async"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-r from-blush/30 via-transparent to-caramel/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-                          <h3 className="text-lg font-bold text-white text-center">The Process</h3>
-                          <p className="text-sm text-caramel/90 text-center">Thoughtful consideration</p>
+                          <h3 className="text-lg font-bold text-white text-center">{t('pages.story.chapter2.processOverlay.title')}</h3>
+                          <p className="text-sm text-caramel/90 text-center">{t('pages.story.chapter2.processOverlay.subtitle')}</p>
                         </div>
                       </div>
                     </div>
@@ -409,31 +412,32 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                               </svg>
                             </div>
-                            <h3 className="text-2xl sm:text-3xl font-bold text-caramel">The Moment</h3>
+                            <h3 className="text-2xl sm:text-3xl font-bold text-caramel">{t('pages.story.chapter2.story.theMomentTitle')}</h3>
                           </div>
                           
                           <p className="text-lg text-blush/90 leading-relaxed">
-                            <span className="text-caramel font-bold">"After one intimate evening,"</span> Ivy recalls, <span className="text-blush font-bold">"Nina asked: 'What if we helped others feel this connected?'"</span>
+                            <span className="text-caramel font-bold">{t('pages.story.chapter2.story.quoteLead')}</span> {t('pages.story.chapter2.story.quoteMiddle')}{' '}
+                            <span className="text-blush font-bold">{t('pages.story.chapter2.story.quoteTail')}</span>
                           </p>
                           
                           <p className="text-base text-blush/80 leading-relaxed">
-                            They didn’t rush—weeks of honest talks about boundaries, comfort, and values.
+                            {t('pages.story.chapter2.story.body')}
                           </p>
                           
                           <div className="space-y-4">
-                            <h4 className="text-lg font-semibold text-caramel">Their Agreement</h4>
+                            <h4 className="text-lg font-semibold text-caramel">{t('pages.story.chapter2.story.agreementTitle')}</h4>
                             <ul className="space-y-3">
                               <li className="flex items-center gap-3">
                                 <div className="h-2 w-2 bg-caramel rounded-full"></div>
-                                <span>Authenticity over performance</span>
+                                <span>{t('pages.story.chapter2.story.agreement.1')}</span>
                               </li>
                               <li className="flex items-center gap-3">
                                 <div className="h-2 w-2 bg-blush rounded-full"></div>
-                                <span>Emotional safety, always</span>
+                                <span>{t('pages.story.chapter2.story.agreement.2')}</span>
                               </li>
                               <li className="flex items-center gap-3">
                                 <div className="h-2 w-2 bg-sienna rounded-full"></div>
-                                <span>Consent and communication first</span>
+                                <span>{t('pages.story.chapter2.story.agreement.3')}</span>
                               </li>
                             </ul>
                           </div>
@@ -451,27 +455,27 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                               </svg>
                             </div>
-                            <h3 className="text-2xl sm:text-3xl font-bold text-blush">Unified Vision</h3>
+                            <h3 className="text-2xl sm:text-3xl font-bold text-blush">{t('pages.story.chapter2.vision.title')}</h3>
                           </div>
                           
                           <p className="text-lg text-blush/90 leading-relaxed">
-                            They wanted more than content: a community built on respect, connection, and care.
+                            {t('pages.story.chapter2.vision.body')}
                           </p>
                           
                           <div className="space-y-4">
-                            <h4 className="text-lg font-semibold text-blush">Core Principles</h4>
+                            <h4 className="text-lg font-semibold text-blush">{t('pages.story.chapter2.vision.corePrinciplesTitle')}</h4>
                             <ul className="space-y-3">
                               <li className="flex items-center gap-3">
                                 <div className="h-2 w-2 bg-blush rounded-full"></div>
-                                <span>Real emotions</span>
+                                <span>{t('pages.story.chapter2.vision.corePrinciples.1')}</span>
                               </li>
                               <li className="flex items-center gap-3">
                                 <div className="h-2 w-2 bg-caramel rounded-full"></div>
-                                <span>Consent and communication</span>
+                                <span>{t('pages.story.chapter2.vision.corePrinciples.2')}</span>
                               </li>
                               <li className="flex items-center gap-3">
                                 <div className="h-2 w-2 bg-sienna rounded-full"></div>
-                                <span>Artistry grounded in honesty</span>
+                                <span>{t('pages.story.chapter2.vision.corePrinciples.3')}</span>
                               </li>
                             </ul>
                           </div>
@@ -488,22 +492,22 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                           <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
-                          The Process
+                          {t('pages.story.chapter2.processCard.title')}
                         </h4>
                         <p className="text-base text-blush/80 leading-relaxed mb-4">
-                          Three months of talks, research, and boundaries—done with care.
+                          {t('pages.story.chapter2.processCard.body')}
                         </p>
                         <div className="grid md:grid-cols-2 gap-4">
                           <div className="space-y-3">
                             <div className="flex items-start gap-2">
                               <div className="w-1.5 h-1.5 rounded-full bg-sienna mt-2.5 flex-shrink-0"></div>
-                              <span className="text-sm text-blush/70">Weekly check-ins on comfort and boundaries</span>
+                              <span className="text-sm text-blush/70">{t('pages.story.chapter2.processCard.bullets.1')}</span>
                             </div>
                           </div>
                           <div className="space-y-3">
                             <div className="flex items-start gap-2">
                               <div className="w-1.5 h-1.5 rounded-full bg-sienna mt-2.5 flex-shrink-0"></div>
-                              <span className="text-sm text-blush/70">Trial content to find the right tone</span>
+                              <span className="text-sm text-blush/70">{t('pages.story.chapter2.processCard.bullets.2')}</span>
                             </div>
                           </div>
                         </div>
@@ -526,7 +530,7 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                         <span className="text-2xl font-bold text-espresso">3</span>
                       </div>
                       <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-sienna via-caramel to-blush bg-clip-text text-transparent">
-                        Today & Tomorrow
+                        {t('pages.story.chapter3.title')}
                       </h2>
                     </div>
                     
@@ -535,7 +539,7 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                       <div className="space-y-12">
                         <div className="space-y-6">
                           <p className="text-lg text-blush/95 leading-relaxed sm:text-xl">
-                            Today they create a calm, respectful space where intimacy feels real.
+                            {t('pages.story.chapter3.intro')}
                           </p>
                           
                           <div className="card-compact ring-1 ring-caramel/10">
@@ -543,10 +547,10 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                               </svg>
-                              Current Focus
+                              {t('pages.story.chapter3.currentFocus.title')}
                             </h4>
                             <p className="text-base text-blush/80 leading-relaxed">
-                              {'Quality over quantity—personal, intentional, caring.'}
+                              {t('pages.story.chapter3.currentFocus.body')}
                             </p>
                           </div>
                         </div>
@@ -557,8 +561,8 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                             <div className="card-compact ring-1 ring-caramel/15 transition-all duration-200 motion-safe:group-hover:scale-[1.02] group-hover:border-caramel/20 group-hover:ring-caramel/25 group-hover:shadow-embrace">
                               <div className="text-center space-y-4">
                                 <div className="text-4xl md:text-5xl font-bold text-caramel">10K+</div>
-                                <p className="text-lg font-bold text-blush">Creating Today</p>
-                                <p className="text-sm text-blush/70">A community built on respect</p>
+                                <p className="text-lg font-bold text-blush">{t('pages.story.chapter3.stats.creatingToday.title')}</p>
+                                <p className="text-sm text-blush/70">{t('pages.story.chapter3.stats.creatingToday.subtitle')}</p>
                                 <div className="mt-4 h-2 w-full bg-espresso/30 rounded-full overflow-hidden">
                                   <div className="h-full bg-gradient-to-r from-caramel to-sienna rounded-full w-4/5 transition-all duration-1000 delay-1000"></div>
                                 </div>
@@ -570,8 +574,8 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                             <div className="card-compact ring-1 ring-blush/10 transition-all duration-200 motion-safe:group-hover:scale-[1.02] group-hover:border-blush/20 group-hover:ring-blush/20 group-hover:shadow-embrace">
                               <div className="text-center space-y-4">
                                 <div className="text-4xl md:text-5xl font-bold text-blush">2+</div>
-                                <p className="text-lg font-bold text-caramel">Years Journey</p>
-                                <p className="text-sm text-blush/70">Growth, trust, and closeness</p>
+                                <p className="text-lg font-bold text-caramel">{t('pages.story.chapter3.stats.yearsJourney.title')}</p>
+                                <p className="text-sm text-blush/70">{t('pages.story.chapter3.stats.yearsJourney.subtitle')}</p>
                                 <div className="mt-4 h-2 w-full bg-espresso/30 rounded-full overflow-hidden">
                                   <div className="h-full bg-gradient-to-r from-blush to-caramel rounded-full w-3/5 transition-all duration-1000 delay-1200"></div>
                                 </div>
@@ -583,8 +587,8 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                             <div className="card-compact ring-1 ring-sienna/15 transition-all duration-200 motion-safe:group-hover:scale-[1.02] group-hover:border-sienna/20 group-hover:ring-sienna/25 group-hover:shadow-embrace">
                               <div className="text-center space-y-4">
                                 <div className="text-4xl md:text-5xl font-bold text-sienna">∞</div>
-                                <p className="text-lg font-bold text-blush">Infinite Tomorrow</p>
-                                <p className="text-sm text-blush/70">Always with care</p>
+                                <p className="text-lg font-bold text-blush">{t('pages.story.chapter3.stats.infiniteTomorrow.title')}</p>
+                                <p className="text-sm text-blush/70">{t('pages.story.chapter3.stats.infiniteTomorrow.subtitle')}</p>
                                 <div className="mt-4 h-2 w-full bg-espresso/30 rounded-full overflow-hidden">
                                   <div className="h-full bg-gradient-to-r from-sienna to-blush rounded-full w-full transition-all duration-1000 delay-1400"></div>
                                 </div>
@@ -601,7 +605,7 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                             <div className="aspect-[3/2] lg:aspect-auto lg:h-full rounded-3xl border border-sienna/50 sm:border-2 overflow-hidden shadow-lift group">
                               <img 
                                 src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=1200&h=800&fit=crop&crop=center"
-                                alt="Today and tomorrow"
+                                alt={t('pages.story.chapter3.photo.alt')}
                                 loading="lazy"
                                 decoding="async"
                                 className="w-full h-full object-cover transition-transform duration-700 motion-safe:group-hover:scale-[1.03]"
@@ -610,19 +614,19 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                           </div>
                           <div className="space-y-8 h-full flex flex-col justify-center">
                             <div className="space-y-6">
-                              <h4 className="text-2xl font-bold text-sienna">Building Tomorrow</h4>
+                              <h4 className="text-2xl font-bold text-sienna">{t('pages.story.chapter3.photo.side.title')}</h4>
                               <p className="text-base text-blush/80 leading-relaxed">
-                                Beyond content: celebrating healthy connection, vulnerability, and consent.
+                                {t('pages.story.chapter3.photo.side.body')}
                               </p>
                             </div>
                             <div className="space-y-4">
                               <div className="flex items-start gap-3">
                                 <div className="w-2 h-2 rounded-full bg-sienna mt-2 flex-shrink-0"></div>
-                                <p className="text-sm text-blush/70">Workshops on healthy connection</p>
+                                <p className="text-sm text-blush/70">{t('pages.story.chapter3.photo.side.bullets.1')}</p>
                               </div>
                               <div className="flex items-start gap-3">
                                 <div className="w-2 h-2 rounded-full bg-sienna mt-2 flex-shrink-0"></div>
-                                <p className="text-sm text-blush/70">Small community moments and meetups</p>
+                                <p className="text-sm text-blush/70">{t('pages.story.chapter3.photo.side.bullets.2')}</p>
                               </div>
                             </div>
                           </div>
@@ -637,10 +641,10 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                             <svg className="h-12 w-12 text-sienna" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                             </svg>
-                            <h4 className="text-2xl sm:text-3xl font-bold text-sienna">Looking Forward</h4>
+                            <h4 className="text-2xl sm:text-3xl font-bold text-sienna">{t('pages.story.chapter3.future.title')}</h4>
                           </div>
                           <p className="text-lg text-blush/95 leading-relaxed max-w-4xl mx-auto sm:text-xl">
-                            Beyond content: celebrate vulnerability, consent, and genuine connection.
+                            {t('pages.story.chapter3.future.subtitle')}
                           </p>
                           <div className="grid md:grid-cols-3 gap-6 mt-8">
                             <div className="text-center space-y-2">
@@ -649,8 +653,8 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                                 </svg>
                               </div>
-                              <h5 className="font-bold text-caramel">Educational Content</h5>
-                              <p className="text-sm text-blush/70">Healthy connection workshops</p>
+                              <h5 className="font-bold text-caramel">{t('pages.story.chapter3.future.cards.educational.title')}</h5>
+                              <p className="text-sm text-blush/70">{t('pages.story.chapter3.future.cards.educational.subtitle')}</p>
                             </div>
                             <div className="text-center space-y-2">
                               <div className="h-16 w-16 rounded-3xl bg-blush/20 flex items-center justify-center mx-auto">
@@ -658,8 +662,8 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                                 </svg>
                               </div>
-                              <h5 className="font-bold text-blush">Community Events</h5>
-                              <p className="text-sm text-blush/70">Meetups and shared moments</p>
+                              <h5 className="font-bold text-blush">{t('pages.story.chapter3.future.cards.community.title')}</h5>
+                              <p className="text-sm text-blush/70">{t('pages.story.chapter3.future.cards.community.subtitle')}</p>
                             </div>
                             <div className="text-center space-y-2">
                               <div className="h-16 w-16 rounded-3xl bg-sienna/20 flex items-center justify-center mx-auto">
@@ -667,8 +671,8 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                                 </svg>
                               </div>
-                              <h5 className="font-bold text-sienna">Creative Projects</h5>
-                              <p className="text-sm text-blush/70">Collaborations and exhibitions</p>
+                              <h5 className="font-bold text-sienna">{t('pages.story.chapter3.future.cards.creative.title')}</h5>
+                              <p className="text-sm text-blush/70">{t('pages.story.chapter3.future.cards.creative.subtitle')}</p>
                             </div>
                           </div>
                         </div>
@@ -692,11 +696,11 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                 <SmoothReveal delay={400}>
                   <div className="text-center space-y-16">
                       <h3 className="text-3xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-caramel via-blush to-sienna bg-clip-text text-transparent leading-none">
-                        Join Us
+                        {t('pages.story.join.title')}
                       </h3>
                     
                       <p className="text-lg font-light text-blush/95 leading-relaxed max-w-4xl mx-auto sm:text-2xl">
-                        Lose yourself in the art—and feel the connection.
+                        {t('pages.story.join.subtitle')}
                       </p>
                     
                     {/* Photos with Side Text */}
@@ -707,7 +711,7 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                           <div className="aspect-[4/5] rounded-3xl border border-caramel/50 sm:border-2 overflow-hidden shadow-lift group">
                             <img 
                               src="https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?w=800&h=1000&fit=crop&crop=center"
-                              alt="Intimate moments"
+                              alt={t('pages.story.join.images.intimateMomentsAlt')}
                               loading="lazy"
                               decoding="async"
                               className="w-full h-full object-cover transition-transform duration-700 motion-safe:group-hover:scale-[1.03]"
@@ -720,19 +724,19 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                                 </svg>
                               </div>
-                              <h4 className="text-3xl lg:text-4xl font-bold text-caramel">Intimate Connection</h4>
+                              <h4 className="text-3xl lg:text-4xl font-bold text-caramel">{t('pages.story.join.cards.intimate.title')}</h4>
                             </div>
                             <p className="text-xl lg:text-2xl text-blush/90 leading-relaxed">
-                              Real connection, captured without the noise.
+                              {t('pages.story.join.cards.intimate.body')}
                             </p>
                             <div className="space-y-4">
                               <div className="flex items-start gap-3">
                                 <div className="w-2 h-2 rounded-full bg-caramel mt-3 flex-shrink-0"></div>
-                                <p className="text-lg text-blush/80">Genuine emotional closeness</p>
+                                <p className="text-lg text-blush/80">{t('pages.story.join.cards.intimate.bullets.1')}</p>
                               </div>
                               <div className="flex items-start gap-3">
                                 <div className="w-2 h-2 rounded-full bg-caramel mt-3 flex-shrink-0"></div>
-                                <p className="text-lg text-blush/80">Vulnerability and trust</p>
+                                <p className="text-lg text-blush/80">{t('pages.story.join.cards.intimate.bullets.2')}</p>
                               </div>
                             </div>
                           </div>
@@ -747,26 +751,26 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                                 </svg>
                               </div>
-                              <h4 className="text-3xl lg:text-4xl font-bold text-blush">Artistic Expression</h4>
+                              <h4 className="text-3xl lg:text-4xl font-bold text-blush">{t('pages.story.join.cards.artistic.title')}</h4>
                             </div>
                             <p className="text-xl lg:text-2xl text-blush/90 leading-relaxed">
-                              {'Beauty in every frame—tasteful, honest, intentional.'}
+                              {t('pages.story.join.cards.artistic.body')}
                             </p>
                             <div className="space-y-4">
                               <div className="flex items-start gap-3">
                                 <div className="w-2 h-2 rounded-full bg-blush mt-3 flex-shrink-0"></div>
-                                <p className="text-lg text-blush/80">Lighting and composition</p>
+                                <p className="text-lg text-blush/80">{t('pages.story.join.cards.artistic.bullets.1')}</p>
                               </div>
                               <div className="flex items-start gap-3">
                                 <div className="w-2 h-2 rounded-full bg-blush mt-3 flex-shrink-0"></div>
-                                <p className="text-lg text-blush/80">Tasteful and sophisticated</p>
+                                <p className="text-lg text-blush/80">{t('pages.story.join.cards.artistic.bullets.2')}</p>
                               </div>
                             </div>
                           </div>
                           <div className="aspect-[4/5] rounded-3xl border border-blush/50 sm:border-2 overflow-hidden shadow-lift group order-1 lg:order-2">
                             <img 
                               src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&h=1000&fit=crop&crop=face"
-                              alt="Artistic expression"
+                              alt={t('pages.story.chapter2.gallery.artisticExpressionAlt')}
                               loading="lazy"
                               decoding="async"
                               className="w-full h-full object-cover transition-transform duration-700 motion-safe:group-hover:scale-[1.03]"
@@ -784,7 +788,7 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
                           className="relative inline-flex items-center gap-4 rounded-full bg-gradient-to-r from-caramel to-sienna px-10 py-5 text-lg font-bold text-espresso shadow-lift transition-all duration-200 hover:from-caramel/90 hover:to-sienna/90 hover:-translate-y-1 hover:shadow-embrace motion-safe:hover:scale-[1.02] sm:px-12 sm:py-6 sm:text-xl group"
                         >
                           <SiOnlyfans className="h-6 w-6 group-hover:rotate-12 transition-transform duration-500" />
-                          <span>Join Our Journey</span>
+                          <span>{t('pages.story.join.cta')}</span>
                           <svg className="h-6 w-6 group-hover:translate-x-2 transition-transform duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                           </svg>

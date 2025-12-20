@@ -2,11 +2,13 @@ import { useEffect, useId, useState } from 'react'
 import { navLinks } from '../utils/constants'
 import { ArrowIcon } from './Icons'
 import logoMark from '../assets/ivy-nina-logo.svg'
+import { useI18n } from '../i18n/index.jsx'
 
 export function MainNav({ onOpenSection, currentPage, showLogo = false, isFixed = true, onNavigateHome }) {
   const [isSolid, setIsSolid] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const mobileMenuId = useId()
+  const { t } = useI18n()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -108,7 +110,7 @@ export function MainNav({ onOpenSection, currentPage, showLogo = false, isFixed 
             className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-white/10 bg-espresso/25 text-blush/85 backdrop-blur-sm transition-all duration-200 hover:border-caramel/50 hover:bg-white/5 hover:text-blush"
             aria-expanded={isMenuOpen}
             aria-controls={mobileMenuId}
-            aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-label={isMenuOpen ? t('nav.aria.closeMenu') : t('nav.aria.openMenu')}
           >
             {isMenuOpen ? (
               <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
@@ -172,7 +174,7 @@ export function MainNav({ onOpenSection, currentPage, showLogo = false, isFixed 
                   }`}
                   aria-current={isActive ? 'page' : undefined}
                 >
-                  {link.label}
+                  {t(link.labelKey)}
                 </button>
               )
             })}
@@ -185,7 +187,7 @@ export function MainNav({ onOpenSection, currentPage, showLogo = false, isFixed 
               rel="noreferrer"
               className="btn btn-dark px-5 py-2.5 text-xs uppercase tracking-[0.35em]"
             >
-              Join OnlyFans
+              {t('nav.joinOnlyFans')}
               <ArrowIcon className="h-3.5 w-3.5" />
             </a>
           </div>
@@ -195,7 +197,7 @@ export function MainNav({ onOpenSection, currentPage, showLogo = false, isFixed 
           <div className="relative sm:hidden">
             <nav
               id={mobileMenuId}
-              aria-label="Navigation menu"
+              aria-label={t('nav.aria.menu')}
               className="absolute left-0 right-0 top-4 z-40 rounded-2xl border border-white/10 bg-espresso/90 p-4 shadow-[0_24px_64px_-40px_rgba(5,2,0,0.85)] backdrop-blur-md"
             >
               <div className="flex flex-col gap-2 text-[11px] uppercase tracking-[0.26em] text-blush/80">
@@ -213,7 +215,7 @@ export function MainNav({ onOpenSection, currentPage, showLogo = false, isFixed 
                       }`}
                       aria-current={isActive ? 'page' : undefined}
                     >
-                      {link.label}
+                      {t(link.labelKey)}
                     </button>
                   )
                 })}
@@ -225,16 +227,4 @@ export function MainNav({ onOpenSection, currentPage, showLogo = false, isFixed 
                   target="_blank"
                   rel="noreferrer"
                   className="btn w-full justify-center bg-[#00AFF0] px-6 py-3 text-xs uppercase tracking-[0.35em] text-white shadow-embrace hover:bg-[#009ad8]"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Join OnlyFans
-                  <ArrowIcon className="h-3.5 w-3.5" />
-                </a>
-              </div>
-            </nav>
-          </div>
-        ) : null}
-      </div>
-    </header>
-  )
-}
+                  onClick={() => setIsMenuOpen(f

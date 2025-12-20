@@ -1,7 +1,10 @@
 import { ArrowIcon } from './Icons'
 import logoMark from '../assets/ivy-nina-logo.svg'
+import { useI18n } from '../i18n/index.jsx'
 
 export function HeroSection() {
+  const { t } = useI18n()
+
   return (
     <section
       id="hero"
@@ -9,19 +12,19 @@ export function HeroSection() {
     >
       <img
         src={logoMark}
-        alt="Ivy and Nina logotype"
+        alt={t('hero.logoAlt')}
         className="absolute left-20 top-[45%] hidden w-80 -translate-y-1/2 drop-shadow-[0_24px_48px_rgba(0,0,0,0.5)] sm:block md:left-36 md:w-[24rem]"
       />
       <img
         src={logoMark}
-        alt="Ivy and Nina logotype"
+        alt={t('hero.logoAlt')}
         className="absolute left-1/2 top-6 w-52 -translate-x-1/2 drop-shadow-[0_20px_44px_rgba(0,0,0,0.5)] sm:hidden"
       />
       {/* Contenuto centrale spostato ancora più in alto */}
       <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col items-center gap-4 text-center">
         <div className="space-y-3">
           <h1 className="text-3xl font-semibold leading-tight text-blush sm:text-5xl md:text-6xl">
-            Real lovers. Real chemistry.
+            {t('hero.headline')}
           </h1>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <a
@@ -30,7 +33,7 @@ export function HeroSection() {
               rel="noreferrer"
               className="btn btn-dark"
             >
-              Unlock All Access
+              {t('hero.cta.unlockAllAccess')}
               <ArrowIcon className="h-4 w-4" />
             </a>
             <a
@@ -39,12 +42,12 @@ export function HeroSection() {
               rel="noreferrer"
               className="btn btn-outline px-5 font-medium"
             >
-              Preview on Instagram
+              {t('hero.cta.previewOnInstagram')}
             </a>
           </div>
         </div>
         <p className="text-[11px] uppercase tracking-[0.32em] text-blush/50 sm:text-xs">
-          Consensual adult creators · Keep private if under 18
+          {t('hero.disclaimer')}
         </p>
       </div>
     </section>

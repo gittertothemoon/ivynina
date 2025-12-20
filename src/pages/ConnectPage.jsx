@@ -6,6 +6,7 @@ import { MainNav } from '../components/MainNav'
 import { UniversalFooter } from '../components/UniversalFooter'
 import { FadeIn } from '../components/animations/ScrollAnimations'
 import { heroBackgrounds } from '../utils/constants'
+import { useI18n } from '../i18n/index.jsx'
 
 export function ConnectPage({ onNavigateHome, onOpenSection }) {
   const [formData, setFormData] = useState({
@@ -24,32 +25,33 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const { t } = useI18n()
 
   const categories = [
-    { value: 'general', label: 'General Inquiry', icon: <FiMessageCircle className="h-5 w-5" aria-hidden="true" /> },
-    { value: 'collaboration', label: 'Collaboration Request', icon: <FiUsers className="h-5 w-5" aria-hidden="true" /> },
-    { value: 'booking', label: 'Booking Inquiry', icon: <FiCalendar className="h-5 w-5" aria-hidden="true" /> },
-    { value: 'content', label: 'Custom Content', icon: <FiVideo className="h-5 w-5" aria-hidden="true" /> },
-    { value: 'technical', label: 'Technical Support', icon: <FiTool className="h-5 w-5" aria-hidden="true" /> },
-    { value: 'media', label: 'Media & Press', icon: <FiFileText className="h-5 w-5" aria-hidden="true" /> }
+    { value: 'general', labelKey: 'pages.connect.form.categories.general', icon: <FiMessageCircle className="h-5 w-5" aria-hidden="true" /> },
+    { value: 'collaboration', labelKey: 'pages.connect.form.categories.collaboration', icon: <FiUsers className="h-5 w-5" aria-hidden="true" /> },
+    { value: 'booking', labelKey: 'pages.connect.form.categories.booking', icon: <FiCalendar className="h-5 w-5" aria-hidden="true" /> },
+    { value: 'content', labelKey: 'pages.connect.form.categories.content', icon: <FiVideo className="h-5 w-5" aria-hidden="true" /> },
+    { value: 'technical', labelKey: 'pages.connect.form.categories.technical', icon: <FiTool className="h-5 w-5" aria-hidden="true" /> },
+    { value: 'media', labelKey: 'pages.connect.form.categories.media', icon: <FiFileText className="h-5 w-5" aria-hidden="true" /> }
   ]
 
   const budgetRanges = [
-    { value: '', label: 'Select budget range' },
+    { value: '', labelKey: 'pages.connect.form.budgetRanges.select' },
     { value: '500-1000', label: '$500 - $1,000' },
     { value: '1000-2500', label: '$1,000 - $2,500' },
     { value: '2500-5000', label: '$2,500 - $5,000' },
     { value: '5000+', label: '$5,000+' },
-    { value: 'discuss', label: 'Let\'s discuss' }
+    { value: 'discuss', labelKey: 'pages.connect.form.budgetRanges.discuss' }
   ]
 
   const timelineOptions = [
-    { value: '', label: 'Select timeline' },
-    { value: 'asap', label: 'ASAP' },
-    { value: '1-2weeks', label: '1-2 weeks' },
-    { value: '1month', label: '1 month' },
-    { value: '2-3months', label: '2-3 months' },
-    { value: 'flexible', label: 'Flexible' }
+    { value: '', labelKey: 'pages.connect.form.timeline.select' },
+    { value: 'asap', labelKey: 'pages.connect.form.timeline.asap' },
+    { value: '1-2weeks', labelKey: 'pages.connect.form.timeline.1_2weeks' },
+    { value: '1month', labelKey: 'pages.connect.form.timeline.1month' },
+    { value: '2-3months', labelKey: 'pages.connect.form.timeline.2_3months' },
+    { value: 'flexible', labelKey: 'pages.connect.form.timeline.flexible' }
   ]
 
   const handleInputChange = (e) => {
@@ -88,10 +90,10 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
               
               <div className="space-y-4">
                 <h1 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blush via-caramel to-sienna bg-clip-text text-transparent">
-                  Message Sent Successfully!
+                  {t('pages.connect.submitted.title')}
                 </h1>
                 <p className="text-xl text-blush/80 leading-relaxed">
-                  Thank you for reaching out. We typically respond within 24 hours. We're excited to connect with you!
+                  {t('pages.connect.submitted.subtitle')}
                 </p>
               </div>
               
@@ -103,7 +105,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                   <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
                   </svg>
-                  Back to Home
+                  {t('pages.connect.submitted.backToHome')}
                 </button>
                 
                 <a
@@ -113,7 +115,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                   className="inline-flex items-center gap-2 rounded-full bg-espresso/80 border border-caramel/30 px-8 py-4 text-sm font-medium text-blush backdrop-blur-sm transition-all duration-300 hover:bg-espresso hover:border-caramel/50 hover:-translate-y-1"
                 >
                   <SiOnlyfans className="h-4 w-4" />
-                  Visit Our OnlyFans
+                  {t('pages.connect.submitted.visitOnlyFans')}
                 </a>
               </div>
             </div>
@@ -136,10 +138,10 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
           <FadeIn>
             <div className="text-center mb-16">
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-blush via-caramel to-sienna bg-clip-text text-transparent leading-tight mb-6">
-                Let's Connect
+                {t('pages.connect.title')}
               </h1>
               <p className="text-xl text-blush/80 leading-relaxed max-w-3xl mx-auto">
-                Ready to collaborate, book a session, or just say hello? We love hearing from our community and are always excited about new opportunities.
+                {t('pages.connect.subtitle')}
               </p>
             </div>
           </FadeIn>
@@ -153,8 +155,8 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold text-caramel mb-2">Email</h3>
-                <p className="text-blush/70 text-sm mb-4">For business inquiries and detailed discussions</p>
+                <h3 className="text-lg font-semibold text-caramel mb-2">{t('pages.connect.contact.email.title')}</h3>
+                <p className="text-blush/70 text-sm mb-4">{t('pages.connect.contact.email.subtitle')}</p>
                 <a href="mailto:booking@ivyandnina.com" className="text-caramel hover:text-caramel/80 text-sm font-medium">
                   booking@ivyandnina.com
                 </a>
@@ -164,8 +166,8 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                 <div className="w-16 h-16 bg-gradient-to-r from-caramel to-sienna rounded-full flex items-center justify-center mx-auto mb-4">
                   <SiOnlyfans className="w-8 h-8 text-espresso" />
                 </div>
-                <h3 className="text-lg font-semibold text-caramel mb-2">OnlyFans</h3>
-                <p className="text-blush/70 text-sm mb-4">Direct messages and personal interactions</p>
+                <h3 className="text-lg font-semibold text-caramel mb-2">{t('pages.connect.contact.onlyFans.title')}</h3>
+                <p className="text-blush/70 text-sm mb-4">{t('pages.connect.contact.onlyFans.subtitle')}</p>
                 <a href="https://onlyfans.com/ivyandnina" target="_blank" rel="noreferrer" className="text-caramel hover:text-caramel/80 text-sm font-medium">
                   @ivyandnina
                 </a>
@@ -177,9 +179,9 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold text-caramel mb-2">Phone</h3>
-                <p className="text-blush/70 text-sm mb-4">Available for urgent booking inquiries</p>
-                <p className="text-caramel text-sm font-medium">By appointment only</p>
+                <h3 className="text-lg font-semibold text-caramel mb-2">{t('pages.connect.contact.phone.title')}</h3>
+                <p className="text-blush/70 text-sm mb-4">{t('pages.connect.contact.phone.subtitle')}</p>
+                <p className="text-caramel text-sm font-medium">{t('pages.connect.contact.phone.note')}</p>
               </div>
             </div>
           </FadeIn>
@@ -188,8 +190,8 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
           <FadeIn delay={400}>
             <div className="rounded-3xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 shadow-embrace p-8 sm:p-12">
               <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold text-caramel mb-4">Send Us a Message</h2>
-                <p className="text-blush/70">Fill out the form below and we'll get back to you as soon as possible.</p>
+                <h2 className="text-3xl font-bold text-caramel mb-4">{t('pages.connect.form.title')}</h2>
+                <p className="text-blush/70">{t('pages.connect.form.subtitle')}</p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-8">
@@ -197,7 +199,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-caramel mb-2">
-                      Your Name *
+                      {t('pages.connect.form.fields.name.label')}
                     </label>
                     <input
                       type="text"
@@ -207,13 +209,13 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                       value={formData.name}
                       onChange={handleInputChange}
                       className="w-full rounded-2xl border border-white/20 bg-espresso/60 px-4 py-3 text-blush caret-caramel outline-none backdrop-blur-sm transition-all duration-300 focus:border-caramel/50 focus:ring-2 focus:ring-caramel/20"
-                      placeholder="Enter your full name"
+                      placeholder={t('pages.connect.form.fields.name.placeholder')}
                     />
                   </div>
 
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-caramel mb-2">
-                      Email Address *
+                      {t('pages.connect.form.fields.email.label')}
                     </label>
                     <input
                       type="email"
@@ -223,7 +225,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                       value={formData.email}
                       onChange={handleInputChange}
                       className="w-full rounded-2xl border border-white/20 bg-espresso/60 px-4 py-3 text-blush caret-caramel outline-none backdrop-blur-sm transition-all duration-300 focus:border-caramel/50 focus:ring-2 focus:ring-caramel/20"
-                      placeholder="your@email.com"
+                      placeholder={t('pages.connect.form.fields.email.placeholder')}
                     />
                   </div>
                 </div>
@@ -231,7 +233,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                 {/* Category Selection */}
                 <div>
                   <label className="block text-sm font-medium text-caramel mb-4">
-                    What can we help you with? *
+                    {t('pages.connect.form.fields.category.label')}
                   </label>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                     {categories.map((category) => (
@@ -252,7 +254,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                           className="sr-only"
                         />
                         <span className="text-lg">{category.icon}</span>
-                        <span className="text-sm font-medium">{category.label}</span>
+                        <span className="text-sm font-medium">{t(category.labelKey)}</span>
                       </label>
                     ))}
                   </div>
@@ -261,7 +263,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                 {/* Subject */}
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium text-caramel mb-2">
-                    Subject *
+                    {t('pages.connect.form.fields.subject.label')}
                   </label>
                   <input
                     type="text"
@@ -271,7 +273,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                     value={formData.subject}
                     onChange={handleInputChange}
                     className="w-full rounded-2xl border border-white/20 bg-espresso/60 px-4 py-3 text-blush caret-caramel outline-none backdrop-blur-sm transition-all duration-300 focus:border-caramel/50 focus:ring-2 focus:ring-caramel/20"
-                    placeholder="Brief description of your inquiry"
+                    placeholder={t('pages.connect.form.fields.subject.placeholder')}
                   />
                 </div>
 
@@ -280,7 +282,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 rounded-2xl bg-caramel/5 border border-caramel/20">
                     <div>
                       <label htmlFor="budget" className="block text-sm font-medium text-caramel mb-2">
-                        Budget Range
+                        {t('pages.connect.form.fields.budget.label')}
                       </label>
                       <select
                         id="budget"
@@ -291,7 +293,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                       >
                         {budgetRanges.map((range) => (
                           <option key={range.value} value={range.value} className="bg-espresso">
-                            {range.label}
+                            {range.labelKey ? t(range.labelKey) : range.label}
                           </option>
                         ))}
                       </select>
@@ -299,7 +301,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
 
                     <div>
                       <label htmlFor="timeline" className="block text-sm font-medium text-caramel mb-2">
-                        Timeline
+                        {t('pages.connect.form.fields.timeline.label')}
                       </label>
                       <select
                         id="timeline"
@@ -310,7 +312,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                       >
                         {timelineOptions.map((option) => (
                           <option key={option.value} value={option.value} className="bg-espresso">
-                            {option.label}
+                            {t(option.labelKey)}
                           </option>
                         ))}
                       </select>
@@ -318,7 +320,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
 
                     <div className="md:col-span-2">
                       <label htmlFor="experience" className="block text-sm font-medium text-caramel mb-2">
-                        Your Experience Level
+                        {t('pages.connect.form.fields.experience.label')}
                       </label>
                       <input
                         type="text"
@@ -327,13 +329,13 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                         value={formData.experience}
                         onChange={handleInputChange}
                         className="w-full rounded-2xl border border-white/20 bg-espresso/60 px-4 py-3 text-blush caret-caramel outline-none backdrop-blur-sm transition-all duration-300 focus:border-caramel/50 focus:ring-2 focus:ring-caramel/20"
-                        placeholder="e.g., Professional photographer, content creator, first time..."
+                        placeholder={t('pages.connect.form.fields.experience.placeholder')}
                       />
                     </div>
 
                     <div className="md:col-span-2">
                       <label htmlFor="portfolio" className="block text-sm font-medium text-caramel mb-2">
-                        Portfolio/Work Samples (Optional)
+                        {t('pages.connect.form.fields.portfolio.label')}
                       </label>
                       <input
                         type="url"
@@ -342,7 +344,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                         value={formData.portfolio}
                         onChange={handleInputChange}
                         className="w-full rounded-2xl border border-white/20 bg-espresso/60 px-4 py-3 text-blush caret-caramel outline-none backdrop-blur-sm transition-all duration-300 focus:border-caramel/50 focus:ring-2 focus:ring-caramel/20"
-                        placeholder="https://your-portfolio.com"
+                        placeholder={t('pages.connect.form.fields.portfolio.placeholder')}
                       />
                     </div>
                   </div>
@@ -351,7 +353,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                 {/* Message */}
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-caramel mb-2">
-                    Your Message *
+                    {t('pages.connect.form.fields.message.label')}
                   </label>
                   <textarea
                     id="message"
@@ -361,7 +363,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                     value={formData.message}
                     onChange={handleInputChange}
                     className="w-full rounded-2xl border border-white/20 bg-espresso/60 px-4 py-3 text-blush caret-caramel outline-none backdrop-blur-sm transition-all duration-300 focus:border-caramel/50 focus:ring-2 focus:ring-caramel/20 resize-none"
-                    placeholder="Tell us more about your inquiry, ideas, or what you'd like to discuss..."
+                    placeholder={t('pages.connect.form.fields.message.placeholder')}
                   />
                 </div>
 
@@ -377,7 +379,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                       className="mt-0.5 h-6 w-6 shrink-0 rounded-md border-white/20 bg-espresso/60 text-caramel focus:ring-caramel/20"
                     />
                     <span className="text-sm text-blush/80 leading-relaxed">
-                      I understand this is for professional inquiries and consent to be contacted regarding my message. All communications are confidential. *
+                      {t('pages.connect.form.checkboxes.consent')}
                     </span>
                   </label>
 
@@ -390,7 +392,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                       className="mt-0.5 h-6 w-6 shrink-0 rounded-md border-white/20 bg-espresso/60 text-caramel focus:ring-caramel/20"
                     />
                     <span className="text-sm text-blush/80 leading-relaxed">
-                      I'd like to receive updates about new content and special offers. (Optional)
+                      {t('pages.connect.form.checkboxes.newsletter')}
                     </span>
                   </label>
                 </div>
@@ -408,14 +410,14 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                         </svg>
-                        Sending Message...
+                        {t('pages.connect.form.submit.sending')}
                       </>
                     ) : (
                       <>
                         <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
                         </svg>
-                        Send Message
+                        {t('pages.connect.form.submit.send')}
                       </>
                     )}
                   </button>

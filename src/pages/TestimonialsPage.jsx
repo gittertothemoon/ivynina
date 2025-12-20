@@ -6,83 +6,85 @@ import { UniversalFooter } from '../components/UniversalFooter'
 import { FadeIn, StaggeredReveal } from '../components/animations/ScrollAnimations'
 import { ArrowIcon } from '../components/Icons'
 import { heroBackgrounds } from '../utils/constants'
+import { useI18n } from '../i18n/index.jsx'
 
 export function TestimonialsPage({ onNavigateHome, onOpenSection }) {
   const [selectedFilter, setSelectedFilter] = useState('all')
   const [currentPage, setCurrentPage] = useState(1)
   const itemsPerPage = 6
+  const { t } = useI18n()
 
   const filters = [
-    { id: 'all', label: 'All Reviews', count: 24 },
-    { id: 'intimate', label: 'Intimate Moments', count: 8 },
-    { id: 'community', label: 'Community Love', count: 10 },
-    { id: 'experience', label: 'Overall Experience', count: 6 }
+    { id: 'all', labelKey: 'pages.testimonials.filters.all', count: 24 },
+    { id: 'intimate', labelKey: 'pages.testimonials.filters.intimate', count: 8 },
+    { id: 'community', labelKey: 'pages.testimonials.filters.community', count: 10 },
+    { id: 'experience', labelKey: 'pages.testimonials.filters.experience', count: 6 }
   ]
 
   const allTestimonials = [
     {
       id: 1,
       name: "Sarah M.",
-      detail: "6 months subscriber",
+      duration: { count: 6, unit: 'month' },
       category: "intimate",
-      quote: "Ivy and Nina have created something beautiful - genuine intimacy that makes you feel seen and valued. Their aftercare notes are incredibly thoughtful.",
+      quoteKey: "pages.testimonials.quotes.1",
       rating: 5,
-      date: "2 days ago",
+      dateKey: "pages.testimonials.dates.1",
       verified: true,
       avatar: "S"
     },
     {
       id: 2,
       name: "Alex R.",
-      detail: "1 year subscriber",
+      duration: { count: 1, unit: 'year' },
       category: "community",
-      quote: "The community they've built is unlike anywhere else. It's respectful, authentic, and genuinely caring. I've made real connections here.",
+      quoteKey: "pages.testimonials.quotes.2",
       rating: 5,
-      date: "1 week ago",
+      dateKey: "pages.testimonials.dates.2",
       verified: true,
       avatar: "A"
     },
     {
       id: 3,
       name: "Jordan K.",
-      detail: "8 months subscriber",
+      duration: { count: 8, unit: 'month' },
       category: "experience",
-      quote: "Quality over quantity - every piece of content is thoughtfully crafted. You can feel the genuine connection between them in every scene.",
+      quoteKey: "pages.testimonials.quotes.3",
       rating: 5,
-      date: "3 days ago",
+      dateKey: "pages.testimonials.dates.3",
       verified: true,
       avatar: "J"
     },
     {
       id: 4,
       name: "Morgan L.",
-      detail: "4 months subscriber",
+      duration: { count: 4, unit: 'month' },
       category: "intimate",
-      quote: "Their approach to intimacy is revolutionary. It's not performative - it's real, vulnerable, and incredibly moving.",
+      quoteKey: "pages.testimonials.quotes.4",
       rating: 5,
-      date: "1 day ago",
+      dateKey: "pages.testimonials.dates.4",
       verified: true,
       avatar: "M"
     },
     {
       id: 5,
       name: "Casey W.",
-      detail: "10 months subscriber",
+      duration: { count: 10, unit: 'month' },
       category: "community",
-      quote: "I joined for the content but stayed for the community. Ivy and Nina respond personally and create a space where everyone feels welcome.",
+      quoteKey: "pages.testimonials.quotes.5",
       rating: 5,
-      date: "5 days ago",
+      dateKey: "pages.testimonials.dates.5",
       verified: true,
       avatar: "C"
     },
     {
       id: 6,
       name: "Taylor B.",
-      detail: "7 months subscriber",
+      duration: { count: 7, unit: 'month' },
       category: "experience",
-      quote: "Worth every penny. The transparency, the quality, the genuine care for subscribers - this is how adult content should be done.",
+      quoteKey: "pages.testimonials.quotes.6",
       rating: 5,
-      date: "4 days ago",
+      dateKey: "pages.testimonials.dates.6",
       verified: true,
       avatar: "T"
     }
@@ -111,10 +113,10 @@ export function TestimonialsPage({ onNavigateHome, onOpenSection }) {
           <FadeIn>
             <div className="text-center mb-16">
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-blush via-caramel to-sienna bg-clip-text text-transparent leading-tight mb-6">
-                Community Love
+                {t('pages.testimonials.title')}
               </h1>
               <p className="text-xl text-blush/80 leading-relaxed max-w-3xl mx-auto">
-                Real stories from our community members who've found connection, authenticity, and genuine care in our shared journey.
+                {t('pages.testimonials.subtitle')}
               </p>
             </div>
           </FadeIn>
@@ -124,19 +126,19 @@ export function TestimonialsPage({ onNavigateHome, onOpenSection }) {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
               <div className="text-center p-6 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl border border-white/10 backdrop-blur-sm">
                 <div className="text-3xl font-bold text-caramel mb-2">4.9</div>
-                <div className="text-sm text-blush/60">Average Rating</div>
+                <div className="text-sm text-blush/60">{t('pages.testimonials.stats.averageRating')}</div>
               </div>
               <div className="text-center p-6 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl border border-white/10 backdrop-blur-sm">
                 <div className="text-3xl font-bold text-caramel mb-2">10K+</div>
-                <div className="text-sm text-blush/60">Happy Members</div>
+                <div className="text-sm text-blush/60">{t('pages.testimonials.stats.happyMembers')}</div>
               </div>
               <div className="text-center p-6 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl border border-white/10 backdrop-blur-sm">
                 <div className="text-3xl font-bold text-caramel mb-2">98%</div>
-                <div className="text-sm text-blush/60">Renewal Rate</div>
+                <div className="text-sm text-blush/60">{t('pages.testimonials.stats.renewalRate')}</div>
               </div>
               <div className="text-center p-6 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl border border-white/10 backdrop-blur-sm">
                 <div className="text-3xl font-bold text-caramel mb-2">2+</div>
-                <div className="text-sm text-blush/60">Years Strong</div>
+                <div className="text-sm text-blush/60">{t('pages.testimonials.stats.yearsStrong')}</div>
               </div>
             </div>
           </FadeIn>
@@ -157,7 +159,7 @@ export function TestimonialsPage({ onNavigateHome, onOpenSection }) {
                       : 'bg-espresso/60 border border-caramel/30 text-blush hover:bg-espresso/80 hover:border-caramel/50'
                   }`}
                 >
-                  {filter.label}
+                  {t(filter.labelKey)}
                   <span className={`text-xs px-2 py-1 rounded-full ${
                     selectedFilter === filter.id ? 'bg-espresso/20' : 'bg-caramel/20'
                   }`}>
@@ -182,7 +184,7 @@ export function TestimonialsPage({ onNavigateHome, onOpenSection }) {
                       <svg className="h-3 w-3 text-green-400" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
-                      <span className="text-xs text-green-400">Verified</span>
+                      <span className="text-xs text-green-400">{t('pages.testimonials.verified')}</span>
                     </div>
                   )}
 
@@ -199,11 +201,11 @@ export function TestimonialsPage({ onNavigateHome, onOpenSection }) {
                           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                         </svg>
                       ))}
-                      <span className="text-sm text-blush/60 ml-2">{testimonial.date}</span>
+                      <span className="text-sm text-blush/60 ml-2">{t(testimonial.dateKey)}</span>
                     </div>
                     
                     <blockquote className="text-base leading-relaxed text-blush/80 group-hover:text-blush transition-colors duration-300">
-                      {testimonial.quote}
+                      {t(testimonial.quoteKey)}
                     </blockquote>
 
                     {/* Author info */}
@@ -219,7 +221,10 @@ export function TestimonialsPage({ onNavigateHome, onOpenSection }) {
                           {testimonial.name}
                         </p>
                         <p className="text-xs text-blush/60 group-hover:text-blush/80 transition-colors duration-300">
-                          {testimonial.detail}
+                          {t('pages.testimonials.subscriberDetail', {
+                            count: testimonial.duration.count,
+                            unit: t(`pages.testimonials.units.${testimonial.duration.unit}`, { count: testimonial.duration.count }),
+                          })}
                         </p>
                       </div>
                     </div>
@@ -255,9 +260,9 @@ export function TestimonialsPage({ onNavigateHome, onOpenSection }) {
             <div className="text-center mt-16 space-y-8">
               <div className="h-px bg-gradient-to-r from-transparent via-caramel/30 to-transparent" />
               <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-caramel">Join our community</h3>
+                <h3 className="text-2xl font-bold text-caramel">{t('pages.testimonials.cta.title')}</h3>
                 <p className="text-blush/70 max-w-2xl mx-auto leading-relaxed">
-                  Become part of a respectful, authentic community where your voice matters and genuine connections flourish.
+                  {t('pages.testimonials.cta.subtitle')}
                 </p>
                 <a
                   href="https://onlyfans.com/ivyandnina"
@@ -266,7 +271,7 @@ export function TestimonialsPage({ onNavigateHome, onOpenSection }) {
                   className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-caramel to-sienna px-8 py-4 text-lg font-semibold text-espresso shadow-lg transition-all duration-300 hover:from-caramel/90 hover:to-sienna/90 hover:-translate-y-1 hover:shadow-xl"
                 >
                   <SiOnlyfans className="h-5 w-5" />
-                  Join the Family
+                  {t('pages.testimonials.cta.button')}
                   <ArrowIcon className="h-5 w-5" />
                 </a>
               </div>

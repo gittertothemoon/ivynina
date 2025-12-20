@@ -5,71 +5,79 @@ import { MainNav } from '../components/MainNav'
 import { UniversalFooter } from '../components/UniversalFooter'
 import { FadeIn } from '../components/animations/ScrollAnimations'
 import { heroBackgrounds } from '../utils/constants'
+import { useI18n } from '../i18n/index.jsx'
 
 export function FAQPage({ onNavigateHome, onOpenSection }) {
   const [openQuestion, setOpenQuestion] = useState(null)
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('all')
+  const { t } = useI18n()
 
   const categories = [
-    { id: 'all', label: 'All Questions', count: 15 },
-    { id: 'subscription', label: 'Subscription', count: 5 },
-    { id: 'content', label: 'Content', count: 4 },
-    { id: 'community', label: 'Community', count: 3 },
-    { id: 'technical', label: 'Technical', count: 3 }
+    { id: 'all', labelKey: 'pages.faq.categories.all', count: 15 },
+    { id: 'subscription', labelKey: 'pages.faq.categories.subscription', count: 5 },
+    { id: 'content', labelKey: 'pages.faq.categories.content', count: 4 },
+    { id: 'community', labelKey: 'pages.faq.categories.community', count: 3 },
+    { id: 'technical', labelKey: 'pages.faq.categories.technical', count: 3 }
   ]
 
   const allFAQs = [
     {
       id: 1,
       category: 'subscription',
-      question: 'How does the subscription work?',
-      answer: 'Our OnlyFans subscription gives you unlimited access to our full library of content, including exclusive scenes, behind-the-scenes footage, and personal messages. You can cancel anytime.',
-      tags: ['subscription', 'billing', 'access']
+      questionKey: 'pages.faq.items.1.question',
+      answerKey: 'pages.faq.items.1.answer',
+      tagsKeys: ['pages.faq.tags.subscription', 'pages.faq.tags.billing', 'pages.faq.tags.access']
     },
     {
       id: 2,
       category: 'content',
-      question: 'How often do you post new content?',
-      answer: 'We post new content 2-3 times per week, including full scenes, intimate moments, and behind-the-scenes content. We also send personal messages and updates regularly.',
-      tags: ['content', 'schedule', 'updates']
+      questionKey: 'pages.faq.items.2.question',
+      answerKey: 'pages.faq.items.2.answer',
+      tagsKeys: ['pages.faq.tags.content', 'pages.faq.tags.schedule', 'pages.faq.tags.updates']
     },
     {
       id: 3,
       category: 'content',
-      question: 'What makes your content different?',
-      answer: 'We focus on authentic intimacy and genuine connection. Every scene includes aftercare discussions, and we prioritize emotional safety and consent in everything we create.',
-      tags: ['authenticity', 'intimacy', 'quality']
+      questionKey: 'pages.faq.items.3.question',
+      answerKey: 'pages.faq.items.3.answer',
+      tagsKeys: ['pages.faq.tags.authenticity', 'pages.faq.tags.intimacy', 'pages.faq.tags.quality']
     },
     {
       id: 4,
       category: 'community',
-      question: 'Can I interact with you directly?',
-      answer: 'Absolutely! We personally respond to messages and create a community where everyone feels heard. We also take custom requests and suggestions for future content.',
-      tags: ['interaction', 'messages', 'community']
+      questionKey: 'pages.faq.items.4.question',
+      answerKey: 'pages.faq.items.4.answer',
+      tagsKeys: ['pages.faq.tags.interaction', 'pages.faq.tags.messages', 'pages.faq.tags.community']
     },
     {
       id: 5,
       category: 'subscription',
-      question: 'Are there any hidden fees?',
-      answer: 'No hidden fees ever. The subscription price includes access to our entire library. Custom content and tips are optional and clearly marked.',
-      tags: ['pricing', 'transparency', 'fees']
+      questionKey: 'pages.faq.items.5.question',
+      answerKey: 'pages.faq.items.5.answer',
+      tagsKeys: ['pages.faq.tags.pricing', 'pages.faq.tags.transparency', 'pages.faq.tags.fees']
     },
     {
       id: 6,
       category: 'technical',
-      question: 'Is my privacy protected?',
-      answer: 'Your privacy is our top priority. OnlyFans has robust privacy protections, and we never share subscriber information. Your viewing history and interactions remain completely confidential.',
-      tags: ['privacy', 'security', 'confidential']
+      questionKey: 'pages.faq.items.6.question',
+      answerKey: 'pages.faq.items.6.answer',
+      tagsKeys: ['pages.faq.tags.privacy', 'pages.faq.tags.security', 'pages.faq.tags.confidential']
     }
   ]
 
   const filteredFAQs = allFAQs.filter(faq => {
     const matchesCategory = selectedCategory === 'all' || faq.category === selectedCategory
-    const matchesSearch = searchQuery === '' || 
-      faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      faq.answer.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      faq.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
+    const localizedQuestion = t(faq.questionKey)
+    const localizedAnswer = t(faq.answerKey)
+    const localizedTags = faq.tagsKeys.map((tagKey) => t(tagKey))
+
+    const normalizedQuery = searchQuery.toLowerCase()
+    const matchesSearch =
+      searchQuery === '' ||
+      localizedQuestion.toLowerCase().includes(normalizedQuery) ||
+      localizedAnswer.toLowerCase().includes(normalizedQuery) ||
+      localizedTags.some((tag) => tag.toLowerCase().includes(normalizedQuery))
     
     return matchesCategory && matchesSearch
   })
@@ -87,10 +95,10 @@ export function FAQPage({ onNavigateHome, onOpenSection }) {
           <FadeIn>
             <div className="text-center mb-16">
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-blush via-caramel to-sienna bg-clip-text text-transparent leading-tight mb-6">
-                Frequently Asked Questions
+                {t('pages.faq.title')}
               </h1>
               <p className="text-xl text-blush/80 leading-relaxed max-w-3xl mx-auto">
-                Everything you need to know about our community, content, and subscription. Transparency is at the heart of what we do.
+                {t('pages.faq.subtitle')}
               </p>
             </div>
           </FadeIn>
@@ -107,7 +115,7 @@ export function FAQPage({ onNavigateHome, onOpenSection }) {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search for answers..."
+                placeholder={t('pages.faq.searchPlaceholder')}
                 className="w-full rounded-2xl border border-white/20 bg-espresso/60 pl-12 pr-4 py-4 text-blush caret-caramel outline-none backdrop-blur-sm transition-all duration-300 focus:border-caramel/50 focus:ring-2 focus:ring-caramel/20"
               />
             </div>
@@ -126,7 +134,7 @@ export function FAQPage({ onNavigateHome, onOpenSection }) {
                       : 'bg-espresso/60 border border-caramel/30 text-blush hover:bg-espresso/80 hover:border-caramel/50'
                   }`}
                 >
-                  {category.label}
+                  {t(category.labelKey)}
                   <span className={`text-xs px-2 py-1 rounded-full ${
                     selectedCategory === category.id ? 'bg-espresso/20' : 'bg-caramel/20'
                   }`}>
@@ -166,7 +174,7 @@ export function FAQPage({ onNavigateHome, onOpenSection }) {
                         
                         <div className="flex-1">
                           <h3 className={`font-semibold transition-colors duration-300 ${isOpen ? 'text-caramel' : 'text-blush group-hover:text-caramel'}`}>
-                            {faq.question}
+                            {t(faq.questionKey)}
                           </h3>
                         </div>
                       </div>
@@ -206,17 +214,17 @@ export function FAQPage({ onNavigateHome, onOpenSection }) {
                           
                           <div className="flex-1">
                             <p className="leading-relaxed text-blush/80 mb-4">
-                              {faq.answer}
+                              {t(faq.answerKey)}
                             </p>
                             
                             {/* Tags */}
                             <div className="flex flex-wrap gap-2">
-                              {faq.tags.map((tag) => (
+                              {faq.tagsKeys.map((tagKey) => (
                                 <span
-                                  key={tag}
+                                  key={tagKey}
                                   className="px-2 py-1 rounded-full bg-caramel/20 text-xs text-caramel"
                                 >
-                                  {tag}
+                                  {t(tagKey)}
                                 </span>
                               ))}
                             </div>
@@ -237,7 +245,7 @@ export function FAQPage({ onNavigateHome, onOpenSection }) {
                 <svg className="h-16 w-16 text-blush/40 mx-auto mb-4" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                 </svg>
-                <p className="text-blush/60">No questions found matching your search.</p>
+                <p className="text-blush/60">{t('pages.faq.noResults')}</p>
               </div>
             </FadeIn>
           )}
@@ -247,9 +255,9 @@ export function FAQPage({ onNavigateHome, onOpenSection }) {
             <div className="text-center mt-16 space-y-8">
               <div className="h-px bg-gradient-to-r from-transparent via-caramel/30 to-transparent" />
               <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-caramel">Still have questions?</h3>
+                <h3 className="text-2xl font-bold text-caramel">{t('pages.faq.contact.title')}</h3>
                 <p className="text-blush/70 max-w-2xl mx-auto leading-relaxed">
-                  We're here to help! Don't hesitate to reach out through any of these channels.
+                  {t('pages.faq.contact.subtitle')}
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <a
@@ -259,7 +267,7 @@ export function FAQPage({ onNavigateHome, onOpenSection }) {
                     <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                     </svg>
-                    Email Us
+                    {t('pages.faq.contact.emailUs')}
                   </a>
                   <a
                     href="https://onlyfans.com/ivyandnina"
@@ -268,7 +276,7 @@ export function FAQPage({ onNavigateHome, onOpenSection }) {
                     className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-caramel to-sienna px-6 py-3 text-sm font-medium text-espresso transition-all duration-300 hover:from-caramel/90 hover:to-sienna/90 hover:-translate-y-1 hover:shadow-lg"
                   >
                     <SiOnlyfans className="h-4 w-4" />
-                    DM Us
+                    {t('pages.faq.contact.dmUs')}
                   </a>
                 </div>
               </div>
