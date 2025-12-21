@@ -86,13 +86,14 @@ export function UniversalFooter({ isHomePage = false }) {
         <div className="pb-[calc(env(safe-area-inset-bottom)+2.75rem)] pt-4 sm:pb-[calc(env(safe-area-inset-bottom)+1.5rem)]">
           <div className="flex flex-col items-center justify-center gap-2 text-center text-xs text-blush/70 sm:flex-row sm:gap-3 sm:text-sm">
             <span>{t('footer.rightsLine')}</span>
-            <button
-              type="button"
+            <a
+              href="https://pionio-github-io.vercel.app"
+              target="_blank"
+              rel="noreferrer"
               className="font-bold text-caramel transition-colors hover:text-sienna"
-              onClick={() => console.log('PIONIO clicked')}
             >
               PIONIO
-            </button>
+            </a>
           </div>
         </div>
       </div>
