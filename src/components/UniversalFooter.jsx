@@ -85,7 +85,9 @@ export function UniversalFooter({ isHomePage = false }) {
 
         <div className="pb-[calc(env(safe-area-inset-bottom)+2.75rem)] pt-4 sm:pb-[calc(env(safe-area-inset-bottom)+1.5rem)]">
           <div className="flex flex-col items-center justify-center gap-2 text-center text-xs text-blush/70 sm:flex-row sm:gap-3 sm:text-sm">
-            <span>{t('footer.rightsLine')}</span>
+            <span className="w-full max-w-full overflow-hidden text-ellipsis whitespace-nowrap text-[clamp(0.55rem,2.4vw,0.75rem)] sm:w-auto sm:overflow-visible sm:whitespace-normal sm:text-sm">
+              {t('footer.rightsLine')}
+            </span>
             <a
               href="https://pionio-github-io.vercel.app"
               target="_blank"

@@ -26,12 +26,12 @@ export function HeroSection() {
           <h1 className="text-3xl font-semibold leading-tight text-blush sm:text-5xl md:text-6xl">
             {t('hero.headline')}
           </h1>
-          <div className="flex flex-wrap items-center justify-center gap-3">
+          <div className="flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
             <a
               href="https://onlyfans.com/ivyandnina"
               target="_blank"
               rel="noreferrer"
-              className="btn btn-dark"
+              className="btn btn-dark w-full sm:w-auto"
             >
               {t('hero.cta.unlockAllAccess')}
               <ArrowIcon className="h-4 w-4" />
@@ -40,7 +40,7 @@ export function HeroSection() {
               href="https://www.instagram.com/ivyandnina/"
               target="_blank"
               rel="noreferrer"
-              className="btn btn-outline px-5 font-medium"
+              className="btn btn-outline w-full px-5 font-medium sm:w-auto"
             >
               {t('hero.cta.previewOnInstagram')}
             </a>
