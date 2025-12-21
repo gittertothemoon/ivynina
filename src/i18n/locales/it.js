@@ -17,7 +17,7 @@ export const it = {
       unlockAllAccess: 'Sblocca l’accesso completo',
       previewOnInstagram: 'Anteprima su Instagram',
     },
-    disclaimer: 'Creator adulti consenzienti · Mantieni privato se hai meno di 18 anni',
+    disclaimer: 'Creator adulti consenzienti · Privato se sei minorenne',
   },
   ageGate: {
     pill: 'Consenso richiesto',
