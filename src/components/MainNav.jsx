@@ -185,7 +185,7 @@ export function MainNav({ onOpenSection, currentPage, showLogo = false, isFixed 
               href="https://onlyfans.com/ivyandnina"
               target="_blank"
               rel="noreferrer"
-              className="btn btn-dark px-5 py-2.5 text-xs uppercase tracking-[0.35em]"
+              className="btn btn-dark px-5 py-2.5 text-xs uppercase tracking-[0.35em] sm:whitespace-nowrap"
             >
               {t('nav.joinOnlyFans')}
               <ArrowIcon className="h-3.5 w-3.5" />
