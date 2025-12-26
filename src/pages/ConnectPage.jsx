@@ -149,7 +149,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
           {/* Contact Options */}
           <FadeIn delay={200}>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-              <div className="text-center p-6 rounded-3xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 shadow-embrace transition-all duration-300 hover:border-caramel/20 hover:shadow-[0_24px_48px_-12px_rgba(42,23,16,0.4)] sm:p-8">
+              <div className="text-center p-6 rounded-3xl bg-gradient-to-br from-blush/10 to-blush/5 border border-blush/15 shadow-embrace transition-all duration-300 hover:border-caramel/20 hover:shadow-[0_24px_48px_-12px_rgba(161,129,103,0.4)] sm:p-8">
                 <div className="w-16 h-16 bg-gradient-to-r from-caramel to-sienna rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg className="w-8 h-8 text-espresso" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
@@ -162,7 +162,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                 </a>
               </div>
 
-              <div className="text-center p-6 rounded-3xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 shadow-embrace transition-all duration-300 hover:border-caramel/20 hover:shadow-[0_24px_48px_-12px_rgba(42,23,16,0.4)] sm:p-8">
+              <div className="text-center p-6 rounded-3xl bg-gradient-to-br from-blush/10 to-blush/5 border border-blush/15 shadow-embrace transition-all duration-300 hover:border-caramel/20 hover:shadow-[0_24px_48px_-12px_rgba(161,129,103,0.4)] sm:p-8">
                 <div className="w-16 h-16 bg-gradient-to-r from-caramel to-sienna rounded-full flex items-center justify-center mx-auto mb-4">
                   <SiOnlyfans className="w-8 h-8 text-espresso" />
                 </div>
@@ -173,7 +173,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                 </a>
               </div>
 
-              <div className="text-center p-6 rounded-3xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 shadow-embrace transition-all duration-300 hover:border-caramel/20 hover:shadow-[0_24px_48px_-12px_rgba(42,23,16,0.4)] sm:p-8">
+              <div className="text-center p-6 rounded-3xl bg-gradient-to-br from-blush/10 to-blush/5 border border-blush/15 shadow-embrace transition-all duration-300 hover:border-caramel/20 hover:shadow-[0_24px_48px_-12px_rgba(161,129,103,0.4)] sm:p-8">
                 <div className="w-16 h-16 bg-gradient-to-r from-caramel to-sienna rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg className="w-8 h-8 text-espresso" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
@@ -188,7 +188,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
 
           {/* Advanced Contact Form */}
           <FadeIn delay={400}>
-            <div className="rounded-3xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 shadow-embrace p-8 sm:p-12">
+            <div className="rounded-3xl bg-gradient-to-br from-blush/10 to-blush/5 border border-blush/15 shadow-embrace p-8 sm:p-12">
               <div className="text-center mb-8">
                 <h2 className="text-3xl font-bold text-caramel mb-4">{t('pages.connect.form.title')}</h2>
                 <p className="text-blush/70">{t('pages.connect.form.subtitle')}</p>
@@ -208,7 +208,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                       required
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="w-full rounded-2xl border border-white/20 bg-espresso/60 px-4 py-3 text-blush caret-caramel outline-none backdrop-blur-sm transition-all duration-300 focus:border-caramel/50 focus:ring-2 focus:ring-caramel/20"
+                      className="w-full rounded-2xl border border-blush/25 bg-espresso/60 px-4 py-3 text-blush caret-caramel outline-none backdrop-blur-sm transition-all duration-300 focus:border-caramel/50 focus:ring-2 focus:ring-caramel/20"
                       placeholder={t('pages.connect.form.fields.name.placeholder')}
                     />
                   </div>
@@ -224,7 +224,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                       required
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full rounded-2xl border border-white/20 bg-espresso/60 px-4 py-3 text-blush caret-caramel outline-none backdrop-blur-sm transition-all duration-300 focus:border-caramel/50 focus:ring-2 focus:ring-caramel/20"
+                      className="w-full rounded-2xl border border-blush/25 bg-espresso/60 px-4 py-3 text-blush caret-caramel outline-none backdrop-blur-sm transition-all duration-300 focus:border-caramel/50 focus:ring-2 focus:ring-caramel/20"
                       placeholder={t('pages.connect.form.fields.email.placeholder')}
                     />
                   </div>
@@ -242,7 +242,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                         className={`flex min-h-11 items-center gap-3 rounded-2xl border p-4 transition-all duration-300 focus-within:ring-2 focus-within:ring-caramel/25 focus-within:ring-offset-2 focus-within:ring-offset-espresso ${
                           formData.category === category.value
                             ? 'border-caramel/50 bg-caramel/10 text-caramel'
-                            : 'border-white/20 bg-espresso/40 text-blush hover:border-caramel/30 hover:bg-espresso/60'
+                            : 'border-blush/25 bg-espresso/40 text-blush hover:border-caramel/30 hover:bg-espresso/60'
                         }`}
                       >
                         <input
@@ -272,7 +272,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                     required
                     value={formData.subject}
                     onChange={handleInputChange}
-                    className="w-full rounded-2xl border border-white/20 bg-espresso/60 px-4 py-3 text-blush caret-caramel outline-none backdrop-blur-sm transition-all duration-300 focus:border-caramel/50 focus:ring-2 focus:ring-caramel/20"
+	                    className="w-full rounded-2xl border border-blush/25 bg-espresso/60 px-4 py-3 text-blush caret-caramel outline-none backdrop-blur-sm transition-all duration-300 focus:border-caramel/50 focus:ring-2 focus:ring-caramel/20"
                     placeholder={t('pages.connect.form.fields.subject.placeholder')}
                   />
                 </div>
@@ -289,7 +289,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                         name="budget"
                         value={formData.budget}
                         onChange={handleInputChange}
-                        className="w-full rounded-2xl border border-white/20 bg-espresso/60 px-4 py-3 text-blush outline-none backdrop-blur-sm transition-all duration-300 focus:border-caramel/50 focus:ring-2 focus:ring-caramel/20"
+	                        className="w-full rounded-2xl border border-blush/25 bg-espresso/60 px-4 py-3 text-blush outline-none backdrop-blur-sm transition-all duration-300 focus:border-caramel/50 focus:ring-2 focus:ring-caramel/20"
                       >
                         {budgetRanges.map((range) => (
                           <option key={range.value} value={range.value} className="bg-espresso">
@@ -308,7 +308,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                         name="timeline"
                         value={formData.timeline}
                         onChange={handleInputChange}
-                        className="w-full rounded-2xl border border-white/20 bg-espresso/60 px-4 py-3 text-blush outline-none backdrop-blur-sm transition-all duration-300 focus:border-caramel/50 focus:ring-2 focus:ring-caramel/20"
+	                        className="w-full rounded-2xl border border-blush/25 bg-espresso/60 px-4 py-3 text-blush outline-none backdrop-blur-sm transition-all duration-300 focus:border-caramel/50 focus:ring-2 focus:ring-caramel/20"
                       >
                         {timelineOptions.map((option) => (
                           <option key={option.value} value={option.value} className="bg-espresso">
@@ -328,7 +328,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                         name="experience"
                         value={formData.experience}
                         onChange={handleInputChange}
-                        className="w-full rounded-2xl border border-white/20 bg-espresso/60 px-4 py-3 text-blush caret-caramel outline-none backdrop-blur-sm transition-all duration-300 focus:border-caramel/50 focus:ring-2 focus:ring-caramel/20"
+	                        className="w-full rounded-2xl border border-blush/25 bg-espresso/60 px-4 py-3 text-blush caret-caramel outline-none backdrop-blur-sm transition-all duration-300 focus:border-caramel/50 focus:ring-2 focus:ring-caramel/20"
                         placeholder={t('pages.connect.form.fields.experience.placeholder')}
                       />
                     </div>
@@ -343,7 +343,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                         name="portfolio"
                         value={formData.portfolio}
                         onChange={handleInputChange}
-                        className="w-full rounded-2xl border border-white/20 bg-espresso/60 px-4 py-3 text-blush caret-caramel outline-none backdrop-blur-sm transition-all duration-300 focus:border-caramel/50 focus:ring-2 focus:ring-caramel/20"
+                        className="w-full rounded-2xl border border-blush/25 bg-espresso/60 px-4 py-3 text-blush caret-caramel outline-none backdrop-blur-sm transition-all duration-300 focus:border-caramel/50 focus:ring-2 focus:ring-caramel/20"
                         placeholder={t('pages.connect.form.fields.portfolio.placeholder')}
                       />
                     </div>
@@ -362,7 +362,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                     rows={6}
                     value={formData.message}
                     onChange={handleInputChange}
-                    className="w-full rounded-2xl border border-white/20 bg-espresso/60 px-4 py-3 text-blush caret-caramel outline-none backdrop-blur-sm transition-all duration-300 focus:border-caramel/50 focus:ring-2 focus:ring-caramel/20 resize-none"
+	                    className="w-full rounded-2xl border border-blush/25 bg-espresso/60 px-4 py-3 text-blush caret-caramel outline-none backdrop-blur-sm transition-all duration-300 focus:border-caramel/50 focus:ring-2 focus:ring-caramel/20 resize-none"
                     placeholder={t('pages.connect.form.fields.message.placeholder')}
                   />
                 </div>
@@ -376,7 +376,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                       checked={formData.consent}
                       onChange={handleInputChange}
                       required
-                      className="mt-0.5 h-6 w-6 shrink-0 rounded-md border-white/20 bg-espresso/60 text-caramel focus:ring-caramel/20"
+	                      className="mt-0.5 h-6 w-6 shrink-0 rounded-md border-blush/25 bg-espresso/60 text-caramel focus:ring-caramel/20"
                     />
                     <span className="text-sm text-blush/80 leading-relaxed">
                       {t('pages.connect.form.checkboxes.consent')}
@@ -389,7 +389,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                       name="newsletter"
                       checked={formData.newsletter}
                       onChange={handleInputChange}
-                      className="mt-0.5 h-6 w-6 shrink-0 rounded-md border-white/20 bg-espresso/60 text-caramel focus:ring-caramel/20"
+	                      className="mt-0.5 h-6 w-6 shrink-0 rounded-md border-blush/25 bg-espresso/60 text-caramel focus:ring-caramel/20"
                     />
                     <span className="text-sm text-blush/80 leading-relaxed">
                       {t('pages.connect.form.checkboxes.newsletter')}
@@ -402,7 +402,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-caramel to-sienna px-12 py-4 text-base font-medium text-espresso transition-all duration-300 hover:from-caramel/90 hover:to-sienna/90 hover:-translate-y-1 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:transform-none"
+	                    className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-caramel to-espresso px-12 py-4 text-base font-medium text-blush shadow-embrace transition-all duration-300 hover:from-caramel/90 hover:to-espresso/90 hover:-translate-y-1 hover:shadow-lift disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:transform-none"
                   >
                     {isSubmitting ? (
                       <>

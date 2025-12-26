@@ -1,4 +1,7 @@
 export const en = {
+  ui: {
+    scrollToTop: 'Scroll to top',
+  },
   seo: {
     title: 'Ivy & Nina — Intimate storytellers, real couple energy',
     description:
@@ -12,10 +15,18 @@ export const en = {
   },
   hero: {
     logoAlt: 'Ivy and Nina logotype',
-    headline: 'Real lovers. Real chemistry.',
+    headlines: [
+      'Real lovers. Real chemistry.',
+      'Two hearts. One story.',
+      'Intimacy, filmed with care.',
+      'Soft nights. Honest desire.',
+      'Playful energy. Pure connection.',
+      'Cinematic love, unfiltered.',
+      'Made for you. Kept private.',
+      'Closer, every scene.',
+    ],
     cta: {
       unlockAllAccess: 'Unlock All Access',
-      previewOnInstagram: 'Preview on Instagram',
     },
     disclaimer: 'Consensual adult creators · Keep private if under 18',
   },
@@ -320,6 +331,16 @@ export const en = {
           communityMembers: 'Community Members',
           authenticMoments: 'Authentic Moments',
         },
+      },
+      visual: {
+        beats: [
+          { kicker: 'The Beginning', line: 'A friendship that turned into a quiet, undeniable pull.' },
+          { kicker: 'The Decision', line: 'Authenticity over performance—always consensual, always respectful.' },
+          { kicker: 'Two Perspectives', line: 'We film intimacy the way we live it: soft, present, real.' },
+          { kicker: 'Today', line: 'A private space for those who want connection, not noise.' },
+          { kicker: 'In Between', line: 'Little glances, shared laughter, and the calm of being understood.' },
+          { kicker: 'Always', line: 'Boundaries, care, and communication—every time, every scene.' },
+        ],
       },
       beginning: {
         images: {

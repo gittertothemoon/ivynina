@@ -19,7 +19,7 @@ export function UniversalFooter({ isHomePage = false }) {
           </a>
 
           <div className="hidden flex-1 items-center justify-center sm:flex">
-            <div className="flex items-center justify-center gap-3 rounded-full border border-white/10 bg-espresso/40 px-4 py-2 text-xs text-blush/70 backdrop-blur-sm">
+            <div className="flex items-center justify-center gap-3 rounded-full border border-blush/15 bg-espresso/40 px-4 py-2 text-xs text-blush/70 backdrop-blur-sm">
               <button
                 type="button"
                 className="text-blush/90 transition hover:text-caramel"
@@ -49,7 +49,7 @@ export function UniversalFooter({ isHomePage = false }) {
             </a>
 
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 sm:hidden">
-              <div className="flex items-center justify-center gap-3 rounded-full border border-white/10 bg-espresso/40 px-4 py-2 text-xs text-blush/70 backdrop-blur-sm">
+              <div className="flex items-center justify-center gap-3 rounded-full border border-blush/15 bg-espresso/40 px-4 py-2 text-xs text-blush/70 backdrop-blur-sm">
                 <button
                   type="button"
                   className="text-blush/90 transition hover:text-caramel"
@@ -80,7 +80,7 @@ export function UniversalFooter({ isHomePage = false }) {
         </div>
 
         <div className={`${isHomePage ? 'mt-6' : 'mt-4'}`}>
-          <div className="h-px w-full bg-[#0aa3ff]/80" />
+          <div className="h-px w-full bg-gradient-to-r from-transparent via-caramel/60 to-transparent" />
         </div>
 
         <div className="pb-[calc(env(safe-area-inset-bottom)+2.75rem)] pt-4 sm:pb-[calc(env(safe-area-inset-bottom)+1.5rem)]">

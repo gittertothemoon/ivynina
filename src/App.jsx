@@ -6,6 +6,7 @@ import { BackgroundCarousel, BackgroundOverlay } from './components/Layout'
 import { MainNav } from './components/MainNav'
 import { HeroSection } from './components/HeroSection'
 import { UniversalFooter } from './components/UniversalFooter'
+import { ScrollToTopButton } from './components/ScrollToTopButton'
 
 // Pages
 import { FAQPage } from './pages/FAQPage'
@@ -21,6 +22,7 @@ function App() {
   const [ageChecked, setAgeChecked] = useState(false)
   const [hasConsent, setHasConsent] = useState(false)
   const [currentPage, setCurrentPage] = useState('home')
+  const [heroIndex, setHeroIndex] = useState(0)
 
   useEffect(() => {
     try {
@@ -102,6 +104,7 @@ function App() {
 
   const handleNavigateHome = useCallback(() => {
     setCurrentPage('home')
+    setHeroIndex(0)
   }, [])
 
   if (!ageChecked) {
@@ -114,33 +117,62 @@ function App() {
 
   // Show dedicated pages
   if (currentPage === 'story') {
-    return <StoryPage onNavigateHome={handleNavigateHome} onOpenSection={handleOpenSection} />
+    return (
+      <>
+        <StoryPage onNavigateHome={handleNavigateHome} onOpenSection={handleOpenSection} />
+        <ScrollToTopButton />
+      </>
+    )
   }
   
   if (currentPage === 'scenes') {
-    return <ScenesPage onNavigateHome={handleNavigateHome} onOpenSection={handleOpenSection} />
+    return (
+      <>
+        <ScenesPage onNavigateHome={handleNavigateHome} onOpenSection={handleOpenSection} />
+        <ScrollToTopButton />
+      </>
+    )
   }
   
   if (currentPage === 'testimonials') {
-    return <TestimonialsPage onNavigateHome={handleNavigateHome} onOpenSection={handleOpenSection} />
+    return (
+      <>
+        <TestimonialsPage onNavigateHome={handleNavigateHome} onOpenSection={handleOpenSection} />
+        <ScrollToTopButton />
+      </>
+    )
   }
   
   if (currentPage === 'faq') {
-    return <FAQPage onNavigateHome={handleNavigateHome} onOpenSection={handleOpenSection} />
+    return (
+      <>
+        <FAQPage onNavigateHome={handleNavigateHome} onOpenSection={handleOpenSection} />
+        <ScrollToTopButton />
+      </>
+    )
   }
   
   if (currentPage === 'connect') {
-    return <ConnectPage onNavigateHome={handleNavigateHome} onOpenSection={handleOpenSection} />
+    return (
+      <>
+        <ConnectPage onNavigateHome={handleNavigateHome} onOpenSection={handleOpenSection} />
+        <ScrollToTopButton />
+      </>
+    )
   }
 
   // Show main home page
   return (
     <div className="relative flex h-[100svh] flex-col overflow-hidden">
-      <BackgroundCarousel images={homeBackgrounds} />
-      <BackgroundOverlay />
+      <BackgroundCarousel images={homeBackgrounds} onIndexChange={setHeroIndex} filter="saturate(1.05)" />
+      <div className="pointer-events-none fixed inset-0 -z-[9]" aria-hidden="true">
+        <div className="absolute inset-0 bg-black/15 mix-blend-multiply" />
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/80 to-transparent sm:h-36" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/90 to-transparent sm:h-44" />
+      </div>
       <MainNav onOpenSection={handleOpenSection} currentPage={currentPage} />
       <main className="relative flex-1 overflow-hidden">
-        <HeroSection />
+        <HeroSection activeIndex={heroIndex} />
       </main>
       <div className="fixed bottom-0 left-0 right-0 z-10">
         <UniversalFooter isHomePage={true} />

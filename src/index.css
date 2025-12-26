@@ -10,7 +10,9 @@
   body {
     min-height: 100svh;
     @apply overflow-x-hidden bg-espresso text-blush/90 font-body antialiased text-[15px] leading-relaxed sm:text-[16px];
-    background-image: radial-gradient(circle at top, rgba(245, 229, 215, 0.18), transparent 55%), radial-gradient(circle at bottom right, rgba(197, 140, 97, 0.22), transparent 50%), linear-gradient(160deg, rgba(42, 23, 16, 1) 0%, rgba(32, 18, 12, 1) 45%, rgba(19, 9, 6, 1) 100%);
+    background-image: radial-gradient(circle at top, rgba(242, 229, 217, 0.18), transparent 55%),
+      radial-gradient(circle at bottom right, rgba(219, 194, 173, 0.22), transparent 50%),
+      linear-gradient(160deg, rgba(161, 129, 103, 1) 0%, rgba(209, 183, 161, 1) 45%, rgba(219, 194, 173, 1) 100%);
     background-repeat: no-repeat;
   }
 
@@ -24,7 +26,7 @@
   }
 
   ::selection {
-    background-color: rgba(197, 140, 97, 0.35);
+    background-color: rgba(219, 194, 173, 0.35);
   }
 
   a {
@@ -56,7 +58,7 @@
   }
 
   .pill {
-    @apply inline-flex items-center gap-2 rounded-full border border-blush/30 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.2em] text-blush/70 backdrop-blur;
+    @apply inline-flex items-center gap-2 rounded-full border border-blush/30 bg-blush/5 px-4 py-1 text-xs uppercase tracking-[0.2em] text-blush/70 backdrop-blur;
   }
 
   .btn {
@@ -64,7 +66,7 @@
   }
 
   .btn-primary {
-    @apply bg-gradient-to-r from-caramel to-sienna text-espresso shadow-embrace hover:from-caramel/90 hover:to-sienna/90;
+    @apply bg-gradient-to-r from-caramel to-espresso text-blush shadow-embrace hover:from-caramel/90 hover:to-espresso/90;
   }
 
   .btn-dark {
@@ -72,7 +74,7 @@
   }
 
   .btn-outline {
-    @apply border border-white/20 bg-transparent text-blush/80 hover:border-caramel/60 hover:text-blush;
+    @apply border border-blush/25 bg-transparent text-blush/80 hover:border-caramel/60 hover:text-blush;
   }
 
   .icon-link {
@@ -80,7 +82,7 @@
   }
 
   .surface {
-    @apply rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm;
+    @apply rounded-3xl border border-blush/15 bg-gradient-to-br from-blush/10 to-blush/5 backdrop-blur-sm;
   }
 
   .card {
@@ -123,6 +125,23 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  @keyframes kenBurnsZoomIn {
+    from {
+      transform: scale(1);
+    }
+
+    to {
+      transform: scale(var(--ken-burns-scale, 1.06));
+    }
+  }
+
+  .ken-burns-zoom-in {
+    animation: kenBurnsZoomIn var(--ken-burns-duration, 7000ms) ease-out both;
+    --ken-burns-scale: 1.06;
+    transform-origin: center;
+    will-change: transform;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -134,5 +153,21 @@
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .ken-burns-zoom-in {
+    animation: none;
+  }
+}
+
+@media (min-width: 640px) {
+  .ken-burns-zoom-in {
+    --ken-burns-scale: 1.04;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ken-burns-zoom-in {
+    --ken-burns-scale: 1.03;
   }
 }

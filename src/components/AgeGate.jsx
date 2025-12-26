@@ -13,7 +13,7 @@ export function AgeGate({ onConfirm, onExit }) {
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-espresso px-6 py-16">
       <div className="absolute inset-0 bg-hero-gradient opacity-80" aria-hidden="true" />
       <div
-        className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(245,229,215,0.2),_transparent_58%)]"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(242,229,217,0.2),_transparent_58%)]"
         aria-hidden="true"
       />
       <div
@@ -21,7 +21,7 @@ export function AgeGate({ onConfirm, onExit }) {
         aria-modal="true"
         aria-labelledby="age-gate-heading"
         aria-describedby="age-gate-description"
-        className="relative z-10 w-full max-w-xl rounded-[2.5rem] border border-white/15 bg-white/5 p-7 text-center shadow-embrace backdrop-blur sm:p-10"
+        className="relative z-10 w-full max-w-xl rounded-[2.5rem] border border-blush/20 bg-blush/5 p-7 text-center shadow-embrace backdrop-blur sm:p-10"
       >
         <span className="pill">{t('ageGate.pill')}</span>
         <h1 id="age-gate-heading" className="mt-4 text-3xl font-semibold text-blush sm:text-4xl">
@@ -42,7 +42,7 @@ export function AgeGate({ onConfirm, onExit }) {
           <button
             type="button"
             onClick={onExit}
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-blush/80 transition-colors duration-200 hover:border-caramel/60 hover:text-blush"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-blush/25 px-6 py-3 text-sm font-medium text-blush/80 transition-colors duration-200 hover:border-caramel/60 hover:text-blush"
           >
             {t('ageGate.cta.exit')}
           </button>

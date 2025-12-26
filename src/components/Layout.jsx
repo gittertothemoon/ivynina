@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export function BackgroundCarousel({ images, interval = 7000 }) {
+export function BackgroundCarousel({ images, interval = 7000, onIndexChange, filter = 'brightness(0.72) saturate(1.05)' }) {
   const [activeIndex, setActiveIndex] = useState(0)
 
   useEffect(() => {
@@ -15,6 +15,11 @@ export function BackgroundCarousel({ images, interval = 7000 }) {
     return () => window.clearInterval(timer)
   }, [images, interval])
 
+  useEffect(() => {
+    if (!images?.length) return
+    onIndexChange?.(activeIndex)
+  }, [activeIndex, images, onIndexChange])
+
   if (!images?.length) {
     return null
   }
@@ -24,13 +29,14 @@ export function BackgroundCarousel({ images, interval = 7000 }) {
       {images.map((src, index) => (
         <div
           key={src}
-          className="absolute inset-0 transition-opacity duration-[1800ms] ease-out"
+          className={`absolute inset-0 transition-opacity duration-[1800ms] ease-out ${index === activeIndex ? 'ken-burns-zoom-in' : ''}`}
           style={{
             backgroundImage: `url(${src})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             opacity: index === activeIndex ? 1 : 0,
-            filter: 'brightness(0.72) saturate(1.05)',
+            filter,
+            '--ken-burns-duration': `${interval}ms`,
           }}
         />
       ))}
@@ -41,8 +47,8 @@ export function BackgroundCarousel({ images, interval = 7000 }) {
 export function BackgroundOverlay() {
   return (
     <div className="pointer-events-none fixed inset-0 -z-[9]" aria-hidden="true">
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/65 mix-blend-multiply" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(245,229,215,0.35),_transparent_80%)] opacity-60" />
+      <div className="absolute inset-0 bg-gradient-to-b from-espresso/80 via-espresso/65 to-espresso/85 mix-blend-multiply" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(242,229,217,0.35),_transparent_80%)] opacity-60" />
     </div>
   )
 }

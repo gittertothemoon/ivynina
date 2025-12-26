@@ -1,4 +1,7 @@
 export const it = {
+  ui: {
+    scrollToTop: 'Torna su',
+  },
   seo: {
     title: 'Ivy & Nina — Racconti intimi, energia da vera coppia',
     description:
@@ -12,10 +15,18 @@ export const it = {
   },
   hero: {
     logoAlt: 'Logo Ivy e Nina',
-    headline: 'Amanti veri. Chimica vera.',
+    headlines: [
+      'Amanti veri. Chimica vera.',
+      'Due cuori. Una storia.',
+      'Intimità, raccontata con cura.',
+      'Notti morbide. Desiderio sincero.',
+      'Energia giocosa. Connessione pura.',
+      'Amore cinematografico, senza filtri.',
+      'Fatto per te. Tenuto privato.',
+      'Più vicini, in ogni scena.',
+    ],
     cta: {
       unlockAllAccess: 'Sblocca l’accesso completo',
-      previewOnInstagram: 'Anteprima su Instagram',
     },
     disclaimer: 'Creator adulti consenzienti · Privato se sei minorenne',
   },
@@ -320,6 +331,16 @@ export const it = {
           communityMembers: 'Membri della community',
           authenticMoments: 'Momenti autentici',
         },
+      },
+      visual: {
+        beats: [
+          { kicker: 'L’inizio', line: 'Un’amicizia che diventa una forza silenziosa, impossibile da ignorare.' },
+          { kicker: 'La decisione', line: 'Autenticità prima della performance—sempre consenso, sempre rispetto.' },
+          { kicker: 'Due sguardi', line: 'Riprendiamo l’intimità come la viviamo: morbida, presente, vera.' },
+          { kicker: 'Oggi', line: 'Uno spazio privato per chi cerca connessione, non rumore.' },
+          { kicker: 'Nel mezzo', line: 'Sguardi piccoli, risate condivise e la calma di sentirsi capite.' },
+          { kicker: 'Sempre', line: 'Confini, cura e comunicazione—ogni volta, in ogni scena.' },
+        ],
       },
       beginning: {
         images: {

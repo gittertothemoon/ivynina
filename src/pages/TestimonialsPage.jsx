@@ -124,19 +124,19 @@ export function TestimonialsPage({ onNavigateHome, onOpenSection }) {
           {/* Stats Section */}
           <FadeIn delay={200}>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-              <div className="text-center p-6 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl border border-white/10 backdrop-blur-sm">
+              <div className="text-center p-6 bg-gradient-to-br from-blush/10 to-blush/5 rounded-2xl border border-blush/15 backdrop-blur-sm">
                 <div className="text-3xl font-bold text-caramel mb-2">4.9</div>
                 <div className="text-sm text-blush/60">{t('pages.testimonials.stats.averageRating')}</div>
               </div>
-              <div className="text-center p-6 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl border border-white/10 backdrop-blur-sm">
+              <div className="text-center p-6 bg-gradient-to-br from-blush/10 to-blush/5 rounded-2xl border border-blush/15 backdrop-blur-sm">
                 <div className="text-3xl font-bold text-caramel mb-2">10K+</div>
                 <div className="text-sm text-blush/60">{t('pages.testimonials.stats.happyMembers')}</div>
               </div>
-              <div className="text-center p-6 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl border border-white/10 backdrop-blur-sm">
+              <div className="text-center p-6 bg-gradient-to-br from-blush/10 to-blush/5 rounded-2xl border border-blush/15 backdrop-blur-sm">
                 <div className="text-3xl font-bold text-caramel mb-2">98%</div>
                 <div className="text-sm text-blush/60">{t('pages.testimonials.stats.renewalRate')}</div>
               </div>
-              <div className="text-center p-6 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl border border-white/10 backdrop-blur-sm">
+              <div className="text-center p-6 bg-gradient-to-br from-blush/10 to-blush/5 rounded-2xl border border-blush/15 backdrop-blur-sm">
                 <div className="text-3xl font-bold text-caramel mb-2">2+</div>
                 <div className="text-sm text-blush/60">{t('pages.testimonials.stats.yearsStrong')}</div>
               </div>
@@ -172,21 +172,21 @@ export function TestimonialsPage({ onNavigateHome, onOpenSection }) {
 
           {/* Testimonials Grid */}
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12">
-            {paginatedTestimonials.map((testimonial, index) => (
-              <FadeIn key={testimonial.id} delay={400 + index * 100}>
-                <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-6 backdrop-blur-sm transition-all duration-500 hover:border-caramel/30 hover:-translate-y-2 hover:shadow-[0_32px_64px_-12px_rgba(42,23,16,0.6)] sm:p-8">
-                  {/* Quote decoration */}
-                  <div className="absolute -top-2 -left-2 text-6xl text-caramel/20 font-serif leading-none">"</div>
-                  
-                  {/* Verified badge */}
-                  {testimonial.verified && (
-                    <div className="absolute top-4 right-4 flex items-center gap-1 px-2 py-1 rounded-full bg-green-500/20 border border-green-500/30">
-                      <svg className="h-3 w-3 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      <span className="text-xs text-green-400">{t('pages.testimonials.verified')}</span>
-                    </div>
-                  )}
+	            {paginatedTestimonials.map((testimonial, index) => (
+	              <FadeIn key={testimonial.id} delay={400 + index * 100}>
+	                <div className="group relative overflow-hidden rounded-3xl border border-blush/15 bg-gradient-to-br from-blush/10 to-blush/5 p-6 backdrop-blur-sm transition-all duration-500 hover:border-caramel/30 hover:-translate-y-2 hover:shadow-[0_32px_64px_-12px_rgba(161,129,103,0.6)] sm:p-8">
+	                  {/* Quote decoration */}
+	                  <div className="absolute -top-2 -left-2 text-6xl text-caramel/20 font-serif leading-none">"</div>
+	                  
+	                  {/* Verified badge */}
+	                  {testimonial.verified && (
+	                    <div className="absolute top-4 right-4 flex items-center gap-1 px-2 py-1 rounded-full bg-espresso/25 border border-espresso/35">
+	                      <svg className="h-3 w-3 text-blush" fill="currentColor" viewBox="0 0 20 20">
+	                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+	                      </svg>
+	                      <span className="text-xs text-blush">{t('pages.testimonials.verified')}</span>
+	                    </div>
+	                  )}
 
                   <div className="relative space-y-6">
                     {/* Rating stars */}
@@ -208,8 +208,8 @@ export function TestimonialsPage({ onNavigateHome, onOpenSection }) {
                       {t(testimonial.quoteKey)}
                     </blockquote>
 
-                    {/* Author info */}
-                    <div className="flex items-center gap-4 pt-4 border-t border-white/10">
+	                    {/* Author info */}
+	                    <div className="flex items-center gap-4 pt-4 border-t border-blush/15">
                       <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-caramel/30 to-caramel/10 ring-2 ring-caramel/20">
                         <span className="text-lg font-semibold text-caramel">
                           {testimonial.avatar}

@@ -111,13 +111,13 @@ export function FAQPage({ onNavigateHome, onOpenSection }) {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                 </svg>
               </div>
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder={t('pages.faq.searchPlaceholder')}
-                className="w-full rounded-2xl border border-white/20 bg-espresso/60 pl-12 pr-4 py-4 text-blush caret-caramel outline-none backdrop-blur-sm transition-all duration-300 focus:border-caramel/50 focus:ring-2 focus:ring-caramel/20"
-              />
+	              <input
+	                type="text"
+	                value={searchQuery}
+	                onChange={(e) => setSearchQuery(e.target.value)}
+	                placeholder={t('pages.faq.searchPlaceholder')}
+	                className="w-full rounded-2xl border border-blush/25 bg-espresso/60 pl-12 pr-4 py-4 text-blush caret-caramel outline-none backdrop-blur-sm transition-all duration-300 focus:border-caramel/50 focus:ring-2 focus:ring-caramel/20"
+	              />
             </div>
           </FadeIn>
 
@@ -151,7 +151,7 @@ export function FAQPage({ onNavigateHome, onOpenSection }) {
               const isOpen = openQuestion === faq.id
               return (
                 <FadeIn key={faq.id} delay={400 + index * 100}>
-                  <div className="group overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 shadow-embrace transition-all duration-300 hover:border-caramel/20 hover:shadow-[0_24px_48px_-12px_rgba(42,23,16,0.4)]">
+	                  <div className="group overflow-hidden rounded-3xl border border-blush/15 bg-gradient-to-br from-blush/10 to-blush/5 shadow-embrace transition-all duration-300 hover:border-caramel/20 hover:shadow-[0_24px_48px_-12px_rgba(161,129,103,0.4)]">
                     <button
                       type="button"
                       onClick={() => setOpenQuestion(isOpen ? null : faq.id)}
@@ -199,7 +199,7 @@ export function FAQPage({ onNavigateHome, onOpenSection }) {
                         isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                       }`}
                     >
-                      <div className="border-t border-white/10 bg-gradient-to-r from-espresso/20 to-transparent px-5 py-5 sm:px-8 sm:py-6">
+	                      <div className="border-t border-blush/15 bg-gradient-to-r from-espresso/20 to-transparent px-5 py-5 sm:px-8 sm:py-6">
                         <div className="flex gap-3 sm:gap-4">
                           {/* Answer indicator */}
                           <div className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-caramel/20">

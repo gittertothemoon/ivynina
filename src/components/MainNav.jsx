@@ -66,7 +66,7 @@ export function MainNav({ onOpenSection, currentPage, showLogo = false, isFixed 
   const positionClasses = isFixed ? 'fixed top-0 left-0 right-0 z-40' : 'relative z-40'
   const headerClasses = `${positionClasses} bg-transparent transition-colors duration-200 ${
     isSolid
-      ? 'bg-espresso/55 backdrop-blur-md shadow-[0_24px_64px_-40px_rgba(5,2,0,0.85)]'
+      ? 'bg-espresso/55 backdrop-blur-md shadow-[0_24px_64px_-40px_rgba(161,129,103,0.65)]'
       : currentPage === 'home'
         ? 'bg-transparent sm:bg-espresso/20 sm:backdrop-blur-sm'
         : 'bg-espresso/20 backdrop-blur-sm'
@@ -86,7 +86,7 @@ export function MainNav({ onOpenSection, currentPage, showLogo = false, isFixed 
     <header className={headerClasses}>
       {isMenuOpen ? (
         <div
-          className="fixed inset-0 z-30 bg-black/45 sm:hidden"
+          className="fixed inset-0 z-30 bg-espresso/80 sm:hidden"
           onClick={() => setIsMenuOpen(false)}
           aria-hidden="true"
         />
@@ -107,7 +107,7 @@ export function MainNav({ onOpenSection, currentPage, showLogo = false, isFixed 
           <button
             type="button"
             onClick={() => setIsMenuOpen((current) => !current)}
-            className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-white/10 bg-espresso/25 text-blush/85 backdrop-blur-sm transition-all duration-200 hover:border-caramel/50 hover:bg-white/5 hover:text-blush"
+            className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-blush/15 bg-espresso/25 text-blush/85 backdrop-blur-sm transition-all duration-200 hover:border-caramel/50 hover:bg-blush/5 hover:text-blush"
             aria-expanded={isMenuOpen}
             aria-controls={mobileMenuId}
             aria-label={isMenuOpen ? t('nav.aria.closeMenu') : t('nav.aria.openMenu')}
@@ -169,8 +169,8 @@ export function MainNav({ onOpenSection, currentPage, showLogo = false, isFixed 
                   onClick={() => onOpenSection(link.section)}
                   className={`min-h-11 rounded-full border px-4 py-2.5 text-blush/85 backdrop-blur-sm transition-all duration-200 ${
                     isActive
-                      ? 'border-caramel/80 bg-caramel/20 text-blush shadow-[0_10px_24px_-18px_rgba(197,140,97,0.8)]'
-                      : 'border-white/10 bg-espresso/20 hover:border-caramel/50 hover:bg-white/5 hover:text-blush'
+                      ? 'border-caramel/80 bg-caramel/20 text-blush shadow-[0_10px_24px_-18px_rgba(219,194,173,0.75)]'
+                      : 'border-blush/15 bg-espresso/20 hover:border-caramel/50 hover:bg-blush/5 hover:text-blush'
                   }`}
                   aria-current={isActive ? 'page' : undefined}
                 >
@@ -198,7 +198,7 @@ export function MainNav({ onOpenSection, currentPage, showLogo = false, isFixed 
             <nav
               id={mobileMenuId}
               aria-label={t('nav.aria.menu')}
-              className="absolute left-0 right-0 top-4 z-40 rounded-2xl border border-white/10 bg-espresso/90 p-4 shadow-[0_24px_64px_-40px_rgba(5,2,0,0.85)] backdrop-blur-md"
+              className="absolute left-0 right-0 top-4 z-40 rounded-2xl border border-blush/15 bg-espresso/90 p-4 shadow-[0_24px_64px_-40px_rgba(161,129,103,0.65)] backdrop-blur-md"
             >
               <div className="flex flex-col gap-2 text-[11px] uppercase tracking-[0.26em] text-blush/80">
                 {navLinks.map((link) => {
@@ -210,8 +210,8 @@ export function MainNav({ onOpenSection, currentPage, showLogo = false, isFixed 
                       onClick={() => handleNavigateMobile(link.section)}
                       className={`min-h-11 w-full rounded-2xl border px-5 py-3 text-left text-blush/85 transition-all duration-200 ${
                         isActive
-                          ? 'border-caramel/80 bg-caramel/20 text-blush shadow-[0_10px_24px_-18px_rgba(197,140,97,0.8)]'
-                          : 'border-white/10 bg-espresso/20 hover:border-caramel/50 hover:bg-white/5 hover:text-blush'
+                          ? 'border-caramel/80 bg-caramel/20 text-blush shadow-[0_10px_24px_-18px_rgba(219,194,173,0.75)]'
+                          : 'border-blush/15 bg-espresso/20 hover:border-caramel/50 hover:bg-blush/5 hover:text-blush'
                       }`}
                       aria-current={isActive ? 'page' : undefined}
                     >
@@ -221,12 +221,12 @@ export function MainNav({ onOpenSection, currentPage, showLogo = false, isFixed 
                 })}
               </div>
 
-              <div className="mt-4 border-t border-white/10 pt-4">
+              <div className="mt-4 border-t border-blush/15 pt-4">
                 <a
                   href="https://onlyfans.com/ivyandnina"
                   target="_blank"
                   rel="noreferrer"
-                  className="btn w-full justify-center bg-[#00AFF0] px-6 py-3 text-xs uppercase tracking-[0.35em] text-white shadow-embrace hover:bg-[#009ad8]"
+                  className="btn btn-primary w-full justify-center px-6 py-3 text-xs uppercase tracking-[0.35em]"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {t('nav.joinOnlyFans')}

@@ -151,12 +151,12 @@ export function ScenesPage({ onNavigateHome, onOpenSection }) {
 	                <button
 	                  key={category.id}
 	                  onClick={() => setSelectedCategory(category.id)}
-                  className={`inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full px-5 py-2.5 text-xs font-semibold transition-all duration-200 sm:px-6 sm:text-sm ${
-                    selectedCategory === category.id
-                      ? 'bg-gradient-to-r from-caramel to-sienna text-espresso shadow-lift'
-                      : 'bg-espresso/40 border border-white/10 text-blush/85 hover:bg-espresso/55 hover:border-caramel/30'
-	                  }`}
-	                >
+	                  className={`inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full px-5 py-2.5 text-xs font-semibold transition-all duration-200 sm:px-6 sm:text-sm ${
+	                    selectedCategory === category.id
+	                      ? 'bg-gradient-to-r from-caramel to-sienna text-espresso shadow-lift'
+	                      : 'bg-espresso/40 border border-blush/15 text-blush/85 hover:bg-espresso/55 hover:border-caramel/30'
+		                  }`}
+		                >
 	                  {t(category.labelKey)}
 	                  <span className={`text-xs px-2 py-1 rounded-full ${
 	                    selectedCategory === category.id ? 'bg-espresso/20' : 'bg-caramel/20'
@@ -171,48 +171,53 @@ export function ScenesPage({ onNavigateHome, onOpenSection }) {
           {/* Scene Gallery */}
           <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
             {filteredScenes.map((scene, index) => (
-              <FadeIn key={scene.id} delay={300 + index * 100}>
-                <div 
-                  className="group relative flex h-[34rem] cursor-pointer flex-col overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm shadow-lift transition-all duration-200 hover:border-caramel/25 hover:-translate-y-1 hover:shadow-embrace focus-within:ring-2 focus-within:ring-caramel/25 focus-within:ring-offset-2 focus-within:ring-offset-espresso"
-                  onClick={() => setSelectedScene(scene)}
-                >
+	              <FadeIn key={scene.id} delay={300 + index * 100}>
+	                <div 
+	                  className="group relative flex h-[34rem] cursor-pointer flex-col overflow-hidden rounded-3xl border border-blush/15 bg-gradient-to-br from-blush/10 to-blush/5 backdrop-blur-sm shadow-lift transition-all duration-200 hover:border-caramel/25 hover:-translate-y-1 hover:shadow-embrace focus-within:ring-2 focus-within:ring-caramel/25 focus-within:ring-offset-2 focus-within:ring-offset-espresso"
+	                  onClick={() => setSelectedScene(scene)}
+	                >
                   {/* Scene Preview */}
-                  <div className={`aspect-[4/3] relative overflow-hidden ${
-                    scene.id === 1 ? 'bg-gradient-to-br from-rose-400/30 via-pink-300/20 to-orange-300/30' :
-                    scene.id === 2 ? 'bg-gradient-to-br from-purple-500/30 via-indigo-400/20 to-blue-400/30' :
-                    scene.id === 3 ? 'bg-gradient-to-br from-emerald-400/30 via-teal-300/20 to-cyan-400/30' :
-                    scene.id === 4 ? 'bg-gradient-to-br from-amber-400/30 via-yellow-300/20 to-orange-400/30' :
-                    scene.id === 5 ? 'bg-gradient-to-br from-violet-400/30 via-fuchsia-300/20 to-pink-400/30' :
-                    'bg-gradient-to-br from-slate-400/30 via-gray-300/20 to-stone-400/30'
-                  }`} data-scene-id={scene.id}>
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.16),_transparent_55%)] opacity-60" />
+	                  <div className={`aspect-[4/3] relative overflow-hidden ${
+	                    scene.id === 1
+	                      ? 'bg-gradient-to-br from-blush/25 via-latte/15 to-caramel/20'
+	                      : scene.id === 2
+	                        ? 'bg-gradient-to-br from-latte/20 via-clay/15 to-sienna/18'
+	                        : scene.id === 3
+	                          ? 'bg-gradient-to-br from-clay/18 via-caramel/14 to-sienna/20'
+	                          : scene.id === 4
+	                            ? 'bg-gradient-to-br from-blush/20 via-caramel/15 to-espresso/18'
+	                            : scene.id === 5
+	                              ? 'bg-gradient-to-br from-latte/20 via-sienna/15 to-espresso/18'
+	                              : 'bg-gradient-to-br from-clay/18 via-sienna/14 to-espresso/16'
+	                  }`} data-scene-id={scene.id}>
+	                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(242,229,217,0.16),_transparent_55%)] opacity-60" />
 
                     <div className="absolute inset-0 bg-gradient-to-t from-espresso/70 via-espresso/20 to-transparent" />
 
-                    {/* Play button */}
-                    <div className="absolute inset-0 z-10 flex flex-col items-center justify-center">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-espresso/55 ring-1 ring-white/10 backdrop-blur-sm transition-all duration-200 group-hover:bg-espresso/70 group-hover:ring-caramel/25 motion-safe:group-hover:scale-[1.04] sm:h-14 sm:w-14">
-                        <svg className="ml-0.5 h-5 w-5 text-caramel sm:h-6 sm:w-6" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z" />
-                        </svg>
-                      </div>
-	                      <div className="mt-2 rounded-full border border-white/10 bg-espresso/45 px-3 py-1 text-[11px] font-semibold text-blush/90 backdrop-blur-sm">
-	                        {t('pages.scenes.previewBadge')}
+	                    {/* Play button */}
+	                    <div className="absolute inset-0 z-10 flex flex-col items-center justify-center">
+	                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-espresso/55 ring-1 ring-blush/15 backdrop-blur-sm transition-all duration-200 group-hover:bg-espresso/70 group-hover:ring-caramel/25 motion-safe:group-hover:scale-[1.04] sm:h-14 sm:w-14">
+	                        <svg className="ml-0.5 h-5 w-5 text-caramel sm:h-6 sm:w-6" fill="currentColor" viewBox="0 0 24 24">
+	                          <path d="M8 5v14l11-7z" />
+	                        </svg>
 	                      </div>
+		                      <div className="mt-2 rounded-full border border-blush/15 bg-espresso/45 px-3 py-1 text-[11px] font-semibold text-blush/90 backdrop-blur-sm">
+		                        {t('pages.scenes.previewBadge')}
+		                      </div>
+		                    </div>
+
+	                    {/* Quality badge */}
+	                    <div className="absolute left-3 top-3 rounded-full border border-blush/15 bg-espresso/60 px-3 py-1 text-[11px] font-semibold text-caramel backdrop-blur-sm">
+	                      {scene.quality}
 	                    </div>
 
-                    {/* Quality badge */}
-                    <div className="absolute left-3 top-3 rounded-full border border-white/10 bg-espresso/60 px-3 py-1 text-[11px] font-semibold text-caramel backdrop-blur-sm">
-                      {scene.quality}
-                    </div>
+	                    {/* Duration */}
+	                    <div className="absolute right-3 top-3 rounded-full border border-blush/15 bg-espresso/60 px-3 py-1 text-[11px] font-semibold text-blush/90 backdrop-blur-sm">
+	                      {scene.duration}
+	                    </div>
 
-                    {/* Duration */}
-                    <div className="absolute right-3 top-3 rounded-full border border-white/10 bg-espresso/60 px-3 py-1 text-[11px] font-semibold text-blush/90 backdrop-blur-sm">
-                      {scene.duration}
-                    </div>
-
-                    {/* Rating */}
-                    <div className="absolute bottom-3 left-3 flex items-center gap-1 rounded-full border border-white/10 bg-espresso/60 px-2.5 py-1 backdrop-blur-sm">
+	                    {/* Rating */}
+	                    <div className="absolute bottom-3 left-3 flex items-center gap-1 rounded-full border border-blush/15 bg-espresso/60 px-2.5 py-1 backdrop-blur-sm">
                       <svg className="h-4 w-4 text-caramel" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
@@ -233,14 +238,14 @@ export function ScenesPage({ onNavigateHome, onOpenSection }) {
 
                     {/* Tags */}
 	                    <div className="no-scrollbar -mx-1 flex gap-2 overflow-x-auto px-1 pb-1">
-	                      {scene.tagsKeys.map((tagKey) => (
-	                        <span
-	                          key={tagKey}
-	                          className="shrink-0 rounded-full border border-white/10 bg-espresso/35 px-3 py-1 text-[11px] font-medium text-blush/70"
-	                        >
-	                          {t(tagKey)}
-	                        </span>
-	                      ))}
+		                      {scene.tagsKeys.map((tagKey) => (
+		                        <span
+		                          key={tagKey}
+		                          className="shrink-0 rounded-full border border-blush/15 bg-espresso/35 px-3 py-1 text-[11px] font-medium text-blush/70"
+		                        >
+		                          {t(tagKey)}
+		                        </span>
+		                      ))}
 	                    </div>
 
                     {/* Hash Code Section */}
@@ -252,12 +257,12 @@ export function ScenesPage({ onNavigateHome, onOpenSection }) {
 	                            event.stopPropagation()
 	                            copyHashCode(scene.hashCode)
                           }}
-                          className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 ${
-                            copiedCode === scene.hashCode
-                              ? 'bg-green-500/20 text-green-400 border border-green-500/30'
-                              : 'bg-caramel/20 text-caramel hover:bg-caramel/30 border border-caramel/30'
-                          }`}
-                        >
+	                          className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 ${
+	                            copiedCode === scene.hashCode
+	                              ? 'bg-espresso/25 text-blush border border-espresso/35'
+	                              : 'bg-caramel/25 text-espresso hover:bg-caramel/30 border border-caramel/40'
+	                          }`}
+	                        >
 	                          {copiedCode === scene.hashCode ? (
 	                            <>
                               <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
@@ -275,18 +280,18 @@ export function ScenesPage({ onNavigateHome, onOpenSection }) {
 	                          )}
 	                        </button>
 	                      </div>
-                      <div className="flex items-center gap-2">
-                        <code className="flex-1 rounded border border-white/10 bg-espresso/35 px-2 py-1 font-mono text-sm text-blush">
-                          {scene.hashCode}
-                        </code>
-                      </div>
+	                      <div className="flex items-center gap-2">
+	                        <code className="flex-1 rounded border border-blush/15 bg-espresso/35 px-2 py-1 font-mono text-sm text-blush">
+	                          {scene.hashCode}
+	                        </code>
+	                      </div>
 	                      <p className="text-xs text-blush/70 mt-2 leading-relaxed">
 	                        {t('pages.scenes.hash.cardInstruction')}
 	                      </p>
 	                    </div>
 
-                    {/* Stats */}
-                    <div className="mt-auto flex items-center justify-between border-t border-white/10 pt-4">
+	                    {/* Stats */}
+	                    <div className="mt-auto flex items-center justify-between border-t border-blush/15 pt-4">
                       <div className="flex items-center gap-2">
                         <svg className="h-4 w-4 text-caramel" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
@@ -342,7 +347,7 @@ export function ScenesPage({ onNavigateHome, onOpenSection }) {
 	                </div>
 
                 {/* Instruction Text */}
-                <div className="bg-gradient-to-r from-white/10 to-white/5 rounded-2xl p-6 border border-caramel/20 backdrop-blur-sm max-w-3xl mx-auto">
+	                <div className="bg-gradient-to-r from-blush/10 to-blush/5 rounded-2xl p-6 border border-caramel/20 backdrop-blur-sm max-w-3xl mx-auto">
 	                  <div className="flex items-start gap-4">
                     <div className="flex-shrink-0 w-8 h-8 rounded-full bg-caramel/20 flex items-center justify-center">
                       <svg className="h-4 w-4 text-caramel" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
@@ -369,7 +374,7 @@ export function ScenesPage({ onNavigateHome, onOpenSection }) {
       {/* Scene Detail Modal */}
       {selectedScene && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
-          <div 
+	          <div
             className="absolute inset-0 bg-espresso/85 backdrop-blur-sm"
             onClick={() => setSelectedScene(null)}
           />
@@ -378,12 +383,12 @@ export function ScenesPage({ onNavigateHome, onOpenSection }) {
             aria-modal="true"
             aria-labelledby="scene-dialog-title"
             aria-describedby="scene-dialog-description"
-            className="relative max-h-[calc(100svh-2rem)] w-full max-w-lg overflow-y-auto overscroll-contain rounded-3xl border border-white/15 bg-gradient-to-br from-white/12 to-white/6 shadow-embrace backdrop-blur-xl"
-          >
-            <div
-              className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-[radial-gradient(circle_at_top,_rgba(197,140,97,0.18),_transparent_60%)]"
-              aria-hidden="true"
-            />
+	            className="relative max-h-[calc(100svh-2rem)] w-full max-w-lg overflow-y-auto overscroll-contain rounded-3xl border border-blush/20 bg-gradient-to-br from-blush/12 to-blush/6 shadow-embrace backdrop-blur-xl"
+	          >
+	            <div
+	              className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-[radial-gradient(circle_at_top,_rgba(219,194,173,0.18),_transparent_60%)]"
+	              aria-hidden="true"
+	            />
 	            <button
 	              type="button"
 	              aria-label={t('pages.scenes.modal.closeAriaLabel')}
@@ -391,8 +396,8 @@ export function ScenesPage({ onNavigateHome, onOpenSection }) {
 	                event.stopPropagation()
 	                setSelectedScene(null)
 	              }}
-              className="absolute right-4 top-4 z-20 flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-espresso/70 text-blush transition-colors duration-200 hover:bg-espresso"
-            >
+	              className="absolute right-4 top-4 z-20 flex h-11 w-11 items-center justify-center rounded-full border border-blush/15 bg-espresso/70 text-blush transition-colors duration-200 hover:bg-espresso"
+	            >
               <svg className="h-4 w-4 text-blush" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -403,60 +408,60 @@ export function ScenesPage({ onNavigateHome, onOpenSection }) {
 	                <h3 id="scene-dialog-title" className="text-2xl font-bold text-caramel sm:text-3xl">
 	                  {t(selectedScene.titleKey)}
 	                </h3>
-                <div className="flex flex-wrap items-center justify-center gap-2">
-                  <span className="rounded-full border border-white/10 bg-espresso/45 px-3 py-1 text-[11px] font-semibold text-caramel">
-                    {selectedScene.quality}
-                  </span>
-                  <span className="rounded-full border border-white/10 bg-espresso/45 px-3 py-1 text-[11px] font-semibold text-blush/90">
-                    {selectedScene.duration}
-                  </span>
-                  <span className="rounded-full border border-white/10 bg-espresso/45 px-3 py-1 text-[11px] font-semibold text-caramel">
-                    ★ {selectedScene.rating}
-                  </span>
-                </div>
-              </div>
+	                <div className="flex flex-wrap items-center justify-center gap-2">
+	                  <span className="rounded-full border border-blush/15 bg-espresso/45 px-3 py-1 text-[11px] font-semibold text-caramel">
+	                    {selectedScene.quality}
+	                  </span>
+	                  <span className="rounded-full border border-blush/15 bg-espresso/45 px-3 py-1 text-[11px] font-semibold text-blush/90">
+	                    {selectedScene.duration}
+	                  </span>
+	                  <span className="rounded-full border border-blush/15 bg-espresso/45 px-3 py-1 text-[11px] font-semibold text-caramel">
+	                    ★ {selectedScene.rating}
+	                  </span>
+	                </div>
+	              </div>
 
-              <div
-                className={`aspect-[4/3] relative overflow-hidden rounded-2xl border border-white/10 ${
-                  selectedScene.id === 1
-                    ? 'bg-gradient-to-br from-rose-400/30 via-pink-300/20 to-orange-300/30'
-                    : selectedScene.id === 2
-                      ? 'bg-gradient-to-br from-purple-500/30 via-indigo-400/20 to-blue-400/30'
-                      : selectedScene.id === 3
-                        ? 'bg-gradient-to-br from-emerald-400/30 via-teal-300/20 to-cyan-400/30'
-                        : selectedScene.id === 4
-                          ? 'bg-gradient-to-br from-amber-400/30 via-yellow-300/20 to-orange-400/30'
-                          : selectedScene.id === 5
-                            ? 'bg-gradient-to-br from-violet-400/30 via-fuchsia-300/20 to-pink-400/30'
-                            : 'bg-gradient-to-br from-slate-400/30 via-gray-300/20 to-stone-400/30'
-                }`}
-                data-scene-id={selectedScene.id}
-              >
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.16),_transparent_55%)] opacity-60" />
-                <div className="absolute inset-0 bg-gradient-to-t from-espresso/70 via-espresso/20 to-transparent" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-espresso/55 ring-1 ring-white/10 backdrop-blur-sm sm:h-16 sm:w-16">
-                    <svg className="ml-0.5 h-6 w-6 text-caramel sm:h-7 sm:w-7" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
+	              <div
+	                className={`aspect-[4/3] relative overflow-hidden rounded-2xl border border-blush/15 ${
+	                  selectedScene.id === 1
+	                    ? 'bg-gradient-to-br from-blush/25 via-latte/15 to-caramel/20'
+	                    : selectedScene.id === 2
+	                      ? 'bg-gradient-to-br from-latte/20 via-clay/15 to-sienna/18'
+	                      : selectedScene.id === 3
+	                        ? 'bg-gradient-to-br from-clay/18 via-caramel/14 to-sienna/20'
+	                        : selectedScene.id === 4
+	                          ? 'bg-gradient-to-br from-blush/20 via-caramel/15 to-espresso/18'
+	                          : selectedScene.id === 5
+	                            ? 'bg-gradient-to-br from-latte/20 via-sienna/15 to-espresso/18'
+	                            : 'bg-gradient-to-br from-clay/18 via-sienna/14 to-espresso/16'
+	                }`}
+	                data-scene-id={selectedScene.id}
+	              >
+	                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(242,229,217,0.16),_transparent_55%)] opacity-60" />
+	                <div className="absolute inset-0 bg-gradient-to-t from-espresso/70 via-espresso/20 to-transparent" />
+	                <div className="absolute inset-0 flex items-center justify-center">
+	                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-espresso/55 ring-1 ring-blush/15 backdrop-blur-sm sm:h-16 sm:w-16">
+	                    <svg className="ml-0.5 h-6 w-6 text-caramel sm:h-7 sm:w-7" fill="currentColor" viewBox="0 0 24 24">
+	                      <path d="M8 5v14l11-7z" />
+	                    </svg>
+	                  </div>
+	                </div>
+	              </div>
 
 	              <p id="scene-dialog-description" className="text-center text-sm leading-relaxed text-blush/80 sm:text-base">
 	                {t(selectedScene.previewKey)}
 	              </p>
 
-	              <div className="no-scrollbar -mx-1 flex justify-center gap-2 overflow-x-auto px-1 pb-1">
-	                {selectedScene.tagsKeys.map((tagKey) => (
-	                  <span
-	                    key={tagKey}
-	                    className="shrink-0 rounded-full border border-white/10 bg-espresso/35 px-3 py-1 text-[11px] font-medium text-blush/70"
-	                  >
-	                    {t(tagKey)}
-	                  </span>
-	                ))}
-	              </div>
+		              <div className="no-scrollbar -mx-1 flex justify-center gap-2 overflow-x-auto px-1 pb-1">
+		                {selectedScene.tagsKeys.map((tagKey) => (
+		                  <span
+		                    key={tagKey}
+		                    className="shrink-0 rounded-full border border-blush/15 bg-espresso/35 px-3 py-1 text-[11px] font-medium text-blush/70"
+		                  >
+		                    {t(tagKey)}
+		                  </span>
+		                ))}
+		              </div>
 
 	              <div className="rounded-2xl border border-caramel/15 bg-gradient-to-r from-caramel/10 to-sienna/10 p-4">
 	                <div className="mb-2 flex items-center justify-between gap-3">
@@ -464,18 +469,18 @@ export function ScenesPage({ onNavigateHome, onOpenSection }) {
 	                  <button
 	                    type="button"
 	                    onClick={() => copyHashCode(selectedScene.hashCode)}
-                    className={`inline-flex items-center gap-1 rounded-full border px-3 py-1 text-xs font-semibold transition-colors duration-200 ${
-                      copiedCode === selectedScene.hashCode
-                        ? 'border-green-500/30 bg-green-500/20 text-green-400'
-                        : 'border-caramel/30 bg-caramel/15 text-caramel hover:bg-caramel/20'
-                    }`}
-	                  >
+	                    className={`inline-flex items-center gap-1 rounded-full border px-3 py-1 text-xs font-semibold transition-colors duration-200 ${
+	                      copiedCode === selectedScene.hashCode
+	                        ? 'border-espresso/35 bg-espresso/25 text-blush'
+	                        : 'border-caramel/30 bg-caramel/15 text-caramel hover:bg-caramel/20'
+	                    }`}
+		                  >
 	                    {copiedCode === selectedScene.hashCode ? t('pages.scenes.hash.copied') : t('pages.scenes.hash.copy')}
 	                  </button>
 	                </div>
-                <code className="block w-full rounded border border-white/10 bg-espresso/35 px-2 py-2 font-mono text-sm text-blush">
-                  {selectedScene.hashCode}
-                </code>
+	                <code className="block w-full rounded border border-blush/15 bg-espresso/35 px-2 py-2 font-mono text-sm text-blush">
+	                  {selectedScene.hashCode}
+	                </code>
 	                <p className="mt-2 text-xs leading-relaxed text-blush/70">
 	                  {t('pages.scenes.hash.modalInstruction')}
 	                </p>
