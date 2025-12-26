@@ -100,7 +100,7 @@ export function MainNav({ onOpenSection, currentPage, showLogo = false, isFixed 
               onClick={handleNavigateHomeSafe}
               className="flex items-center justify-center rounded-xl transition-transform duration-200 hover:scale-[1.02]"
             >
-              <img src={logoMark} alt="Ivy & Nina" className="h-20 w-auto" />
+              <img src={logoMark} alt="Ivy & Nina" className="h-20 w-auto origin-left scale-125" />
             </button>
           ) : null}
 
@@ -149,7 +149,7 @@ export function MainNav({ onOpenSection, currentPage, showLogo = false, isFixed 
               onClick={handleNavigateHomeSafe}
               className="flex items-center justify-center rounded-xl transition-transform duration-200 hover:scale-[1.02] sm:justify-start"
             >
-              <img src={logoMark} alt="Ivy & Nina" className="h-24 w-auto sm:h-32" />
+              <img src={logoMark} alt="Ivy & Nina" className="h-24 w-auto origin-left scale-125 sm:h-32 sm:scale-110" />
             </button>
           ) : (
             <div className="hidden sm:block" aria-hidden="true" />
