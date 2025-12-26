@@ -10,9 +10,9 @@
   body {
     min-height: 100svh;
     @apply overflow-x-hidden bg-espresso text-blush/90 font-body antialiased text-[15px] leading-relaxed sm:text-[16px];
-    background-image: radial-gradient(circle at top, rgba(242, 229, 217, 0.18), transparent 55%),
-      radial-gradient(circle at bottom right, rgba(219, 194, 173, 0.22), transparent 50%),
-      linear-gradient(160deg, rgba(161, 129, 103, 1) 0%, rgba(209, 183, 161, 1) 45%, rgba(219, 194, 173, 1) 100%);
+    background-image: radial-gradient(circle at top, rgba(242, 229, 217, 0.14), transparent 55%),
+      radial-gradient(circle at bottom right, rgba(219, 194, 173, 0.18), transparent 55%),
+      linear-gradient(160deg, rgba(42, 23, 16, 1) 0%, rgba(36, 20, 14, 1) 45%, rgba(19, 9, 6, 1) 100%);
     background-repeat: no-repeat;
   }
 

@@ -175,11 +175,6 @@ function StoryImagePanel({
           <div className={`pointer-events-none absolute inset-0 ${overlayClassName}`} aria-hidden="true" />
         ) : null}
 
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/80 to-transparent sm:h-40" />
-          <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black/90 to-transparent sm:h-48" />
-        </div>
-
         {children ? <div className="relative z-10 h-full">{children}</div> : null}
 
         {beat?.kicker || beat?.line ? (
@@ -250,11 +245,6 @@ function ParallaxCollage({ images, beat, density = 'dense' }) {
     <section className="relative -mx-6 sm:-mx-10 h-[100svh]" ref={ref}>
       <div className="relative h-full overflow-hidden">
         <div className="absolute inset-0 bg-section-texture opacity-80" aria-hidden="true" />
-
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/80 to-transparent sm:h-40" />
-          <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black/90 to-transparent sm:h-48" />
-        </div>
 
         {layers.map((layer) => (
           <div

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 
 // Components
 import { AgeGate } from './components/AgeGate'
-import { BackgroundCarousel, BackgroundOverlay } from './components/Layout'
+import { BackgroundCarousel } from './components/Layout'
 import { MainNav } from './components/MainNav'
 import { HeroSection } from './components/HeroSection'
 import { UniversalFooter } from './components/UniversalFooter'

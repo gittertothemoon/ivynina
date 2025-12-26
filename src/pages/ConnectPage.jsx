@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { SiOnlyfans } from 'react-icons/si'
 import { FiCalendar, FiFileText, FiMessageCircle, FiTool, FiUsers, FiVideo } from 'react-icons/fi'
-import { BackgroundCarousel, BackgroundOverlay } from '../components/Layout'
+import { BackgroundCarousel } from '../components/Layout'
 import { MainNav } from '../components/MainNav'
 import { UniversalFooter } from '../components/UniversalFooter'
 import { FadeIn } from '../components/animations/ScrollAnimations'
@@ -77,7 +77,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
     return (
       <div className="relative min-h-screen bg-gradient-to-b from-espresso via-espresso/95 to-espresso/90 flex items-center justify-center">
         <BackgroundCarousel images={heroBackgrounds} />
-        <BackgroundOverlay />
+        
         
         <div className="relative z-10 text-center max-w-2xl mx-auto px-6">
           <FadeIn>
@@ -128,7 +128,6 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-espresso via-espresso/95 to-espresso/90">
       <BackgroundCarousel images={heroBackgrounds} />
-      <BackgroundOverlay />
       
       <MainNav onOpenSection={onOpenSection} currentPage="connect" showLogo={true} isFixed={false} onNavigateHome={onNavigateHome} />
 

@@ -11,11 +11,6 @@ export function AgeGate({ onConfirm, onExit }) {
 
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-espresso px-6 py-16">
-      <div className="absolute inset-0 bg-hero-gradient opacity-80" aria-hidden="true" />
-      <div
-        className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(242,229,217,0.2),_transparent_58%)]"
-        aria-hidden="true"
-      />
       <div
         role="dialog"
         aria-modal="true"

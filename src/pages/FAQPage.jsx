@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { SiOnlyfans } from 'react-icons/si'
-import { BackgroundCarousel, BackgroundOverlay } from '../components/Layout'
+import { BackgroundCarousel } from '../components/Layout'
 import { MainNav } from '../components/MainNav'
 import { UniversalFooter } from '../components/UniversalFooter'
 import { FadeIn } from '../components/animations/ScrollAnimations'
@@ -85,7 +85,6 @@ export function FAQPage({ onNavigateHome, onOpenSection }) {
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-espresso via-espresso/95 to-espresso/90">
       <BackgroundCarousel images={heroBackgrounds} />
-      <BackgroundOverlay />
       
       <MainNav onOpenSection={onOpenSection} currentPage="faq" showLogo={true} isFixed={false} onNavigateHome={onNavigateHome} />
 
