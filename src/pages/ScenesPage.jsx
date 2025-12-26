@@ -5,7 +5,7 @@ import { MainNav } from '../components/MainNav'
 import { UniversalFooter } from '../components/UniversalFooter'
 import { FadeIn } from '../components/animations/ScrollAnimations'
 import { ArrowIcon } from '../components/Icons'
-import { heroBackgrounds } from '../utils/constants'
+import { homeBackgrounds } from '../utils/constants'
 import { useI18n } from '../i18n/useI18n'
 
 export function ScenesPage({ onNavigateHome, onOpenSection }) {
@@ -125,7 +125,7 @@ export function ScenesPage({ onNavigateHome, onOpenSection }) {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-espresso via-espresso/95 to-espresso/90">
-      <BackgroundCarousel images={heroBackgrounds} />
+      <BackgroundCarousel images={homeBackgrounds} />
       
       <MainNav onOpenSection={onOpenSection} currentPage="scenes" showLogo={true} isFixed={false} onNavigateHome={onNavigateHome} />
 

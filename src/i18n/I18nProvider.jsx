@@ -41,7 +41,7 @@ function getPathValue(object, path) {
 function interpolate(template, variables) {
   if (typeof template !== 'string' || !variables) return template
 
-  return template.replace(/{{\\s*([\\w.]+)\\s*}}/g, (_match, key) => {
+  return template.replace(/{{\s*([\w.]+)\s*}}/g, (_match, key) => {
     const value = getPathValue(variables, key)
     return value === undefined || value === null ? '' : String(value)
   })

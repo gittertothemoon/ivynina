@@ -5,7 +5,7 @@ import { MainNav } from '../components/MainNav'
 import { UniversalFooter } from '../components/UniversalFooter'
 import { FadeIn, StaggeredReveal } from '../components/animations/ScrollAnimations'
 import { ArrowIcon } from '../components/Icons'
-import { heroBackgrounds } from '../utils/constants'
+import { homeBackgrounds } from '../utils/constants'
 import { useI18n } from '../i18n/useI18n'
 
 export function TestimonialsPage({ onNavigateHome, onOpenSection }) {
@@ -102,7 +102,7 @@ export function TestimonialsPage({ onNavigateHome, onOpenSection }) {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-espresso via-espresso/95 to-espresso/90">
-      <BackgroundCarousel images={heroBackgrounds} />
+      <BackgroundCarousel images={homeBackgrounds} />
       
       <MainNav onOpenSection={onOpenSection} currentPage="testimonials" showLogo={true} isFixed={false} onNavigateHome={onNavigateHome} />
 
@@ -172,14 +172,19 @@ export function TestimonialsPage({ onNavigateHome, onOpenSection }) {
           {/* Testimonials Grid */}
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12">
 	            {paginatedTestimonials.map((testimonial, index) => (
-	              <FadeIn key={testimonial.id} delay={400 + index * 100}>
-	                <div className="group relative overflow-hidden rounded-3xl border border-blush/15 bg-gradient-to-br from-blush/10 to-blush/5 p-6 backdrop-blur-sm transition-all duration-500 hover:border-caramel/30 hover:-translate-y-2 hover:shadow-[0_32px_64px_-12px_rgba(161,129,103,0.6)] sm:p-8">
-	                  {/* Quote decoration */}
-	                  <div className="absolute -top-2 -left-2 text-6xl text-caramel/20 font-serif leading-none">"</div>
-	                  
-	                  {/* Verified badge */}
-	                  {testimonial.verified && (
-	                    <div className="absolute top-4 right-4 flex items-center gap-1 px-2 py-1 rounded-full bg-espresso/25 border border-espresso/35">
+		              <FadeIn key={testimonial.id} delay={400 + index * 100}>
+		                <div className="group relative overflow-hidden rounded-3xl border border-blush/15 bg-gradient-to-br from-blush/10 to-blush/5 p-6 backdrop-blur-sm transition-all duration-500 hover:border-caramel/30 hover:-translate-y-2 hover:shadow-[0_32px_64px_-12px_rgba(161,129,103,0.6)] sm:p-8">
+		                  {/* Quote decoration */}
+		                  <div
+		                    aria-hidden="true"
+		                    className="pointer-events-none absolute left-6 top-6 z-0 select-none font-display text-5xl leading-none text-caramel/15"
+		                  >
+		                    “
+		                  </div>
+		                  
+		                  {/* Verified badge */}
+		                  {testimonial.verified && (
+		                    <div className="absolute top-4 right-4 flex items-center gap-1 px-2 py-1 rounded-full bg-espresso/25 border border-espresso/35">
 	                      <svg className="h-3 w-3 text-blush" fill="currentColor" viewBox="0 0 20 20">
 	                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
 	                      </svg>
@@ -187,11 +192,11 @@ export function TestimonialsPage({ onNavigateHome, onOpenSection }) {
 	                    </div>
 	                  )}
 
-                  <div className="relative space-y-6">
-                    {/* Rating stars */}
-                    <div className="flex items-center gap-1">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <svg
+	                  <div className="relative z-10 space-y-6">
+	                    {/* Rating stars */}
+	                    <div className="flex items-center gap-1">
+	                      {[...Array(testimonial.rating)].map((_, i) => (
+	                        <svg
                           key={i}
                           className="h-4 w-4 text-caramel"
                           fill="currentColor"

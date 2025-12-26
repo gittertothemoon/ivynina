@@ -5,7 +5,7 @@ import { BackgroundCarousel } from '../components/Layout'
 import { MainNav } from '../components/MainNav'
 import { UniversalFooter } from '../components/UniversalFooter'
 import { FadeIn } from '../components/animations/ScrollAnimations'
-import { heroBackgrounds } from '../utils/constants'
+import { homeBackgrounds } from '../utils/constants'
 import { useI18n } from '../i18n/useI18n'
 
 export function ConnectPage({ onNavigateHome, onOpenSection }) {
@@ -76,7 +76,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
   if (submitted) {
     return (
       <div className="relative min-h-screen bg-gradient-to-b from-espresso via-espresso/95 to-espresso/90 flex items-center justify-center">
-        <BackgroundCarousel images={heroBackgrounds} />
+        <BackgroundCarousel images={homeBackgrounds} />
         
         
         <div className="relative z-10 text-center max-w-2xl mx-auto px-6">
@@ -127,7 +127,7 @@ export function ConnectPage({ onNavigateHome, onOpenSection }) {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-espresso via-espresso/95 to-espresso/90">
-      <BackgroundCarousel images={heroBackgrounds} />
+      <BackgroundCarousel images={homeBackgrounds} />
       
       <MainNav onOpenSection={onOpenSection} currentPage="connect" showLogo={true} isFixed={false} onNavigateHome={onNavigateHome} />
 

@@ -4,7 +4,7 @@ import { BackgroundCarousel } from '../components/Layout'
 import { MainNav } from '../components/MainNav'
 import { UniversalFooter } from '../components/UniversalFooter'
 import { FadeIn } from '../components/animations/ScrollAnimations'
-import { heroBackgrounds } from '../utils/constants'
+import { homeBackgrounds } from '../utils/constants'
 import { useI18n } from '../i18n/useI18n'
 
 export function FAQPage({ onNavigateHome, onOpenSection }) {
@@ -84,7 +84,7 @@ export function FAQPage({ onNavigateHome, onOpenSection }) {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-espresso via-espresso/95 to-espresso/90">
-      <BackgroundCarousel images={heroBackgrounds} />
+      <BackgroundCarousel images={homeBackgrounds} />
       
       <MainNav onOpenSection={onOpenSection} currentPage="faq" showLogo={true} isFixed={false} onNavigateHome={onNavigateHome} />
 
