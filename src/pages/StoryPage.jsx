@@ -228,7 +228,7 @@ function StoryImagePanel({
   )
 }
 
-function ParallaxCollage({ images, beat, density = 'dense' }) {
+function ParallaxCollage({ images, beat, density = 'dense', beatPlacement = 'overlay' }) {
   const ref = useRef(null)
   const isVisible = useInViewOnceRef(ref, { threshold: 0.25 })
   useScrollCssVariable(ref, '--p')
@@ -260,45 +260,53 @@ function ParallaxCollage({ images, beat, density = 'dense' }) {
   }, [density, images])
 
   const fadeStop = 'calc(((1 - var(--tp)) * 14%) + 0.5%)'
+  const reserveBottom = beatPlacement === 'bottom' && (beat?.kicker || beat?.line)
+  const bottomStop = reserveBottom ? 'calc(100% - 28%)' : '100%'
 
   return (
     <section className="relative -mx-6 sm:-mx-10 h-[106svh] sm:h-[108svh]" ref={ref}>
-      <div
-        className="sticky top-0 h-[100svh] overflow-hidden"
-        style={{
-          maskImage: `linear-gradient(to bottom, transparent 0%, rgba(0,0,0,1) ${fadeStop}, rgba(0,0,0,1) 100%)`,
-          WebkitMaskImage: `linear-gradient(to bottom, transparent 0%, rgba(0,0,0,1) ${fadeStop}, rgba(0,0,0,1) 100%)`,
-        }}
-      >
+      <div className="sticky top-0 h-[100svh] overflow-hidden">
         <div className="absolute inset-0 bg-section-texture opacity-80" aria-hidden="true" />
 
-        {layers.map((layer) => (
-          <div
-            key={`${layer.src}-${layer.left}-${layer.top}`}
-            className={`absolute rounded-[2.25rem] border border-blush/20 bg-espresso/20 p-2 shadow-lift backdrop-blur-sm transition-opacity duration-700 ${
-              isVisible ? 'opacity-100' : 'opacity-0'
-            }`}
-            style={{
-              left: layer.left,
-              top: layer.top,
-              width: layer.w,
-              maxWidth: layer.maxW,
-              zIndex: layer.z,
-              transform: `translate3d(calc(-50% + (var(--p) * ${layer.dx}px)), calc(-50% + (var(--p) * ${layer.dy}px)), 0) rotate(calc(${layer.rot}deg + (var(--p) * 0.7deg)))`,
-            }}
-          >
-            <div className="relative overflow-hidden rounded-[1.85rem]">
-              <img
-                src={layer.src}
-                alt=""
-                loading="lazy"
-                decoding="async"
-                className="h-full w-full object-cover"
-                style={{ aspectRatio: '4 / 5' }}
-              />
+        <div
+          className="absolute inset-0"
+          style={{
+            maskImage: `linear-gradient(to bottom, transparent 0%, rgba(0,0,0,1) ${fadeStop}, rgba(0,0,0,1) ${bottomStop}, ${
+              reserveBottom ? 'transparent 100%' : 'rgba(0,0,0,1) 100%'
+            })`,
+            WebkitMaskImage: `linear-gradient(to bottom, transparent 0%, rgba(0,0,0,1) ${fadeStop}, rgba(0,0,0,1) ${bottomStop}, ${
+              reserveBottom ? 'transparent 100%' : 'rgba(0,0,0,1) 100%'
+            })`,
+          }}
+        >
+          {layers.map((layer) => (
+            <div
+              key={`${layer.src}-${layer.left}-${layer.top}`}
+              className={`absolute rounded-[2.25rem] border border-blush/20 bg-espresso/20 p-2 shadow-lift backdrop-blur-sm transition-opacity duration-700 ${
+                isVisible ? 'opacity-100' : 'opacity-0'
+              }`}
+              style={{
+                left: layer.left,
+                top: layer.top,
+                width: layer.w,
+                maxWidth: layer.maxW,
+                zIndex: layer.z,
+                transform: `translate3d(calc(-50% + (var(--p) * ${layer.dx}px)), calc(-50% + (var(--p) * ${layer.dy}px)), 0) rotate(calc(${layer.rot}deg + (var(--p) * 0.7deg)))`,
+              }}
+            >
+              <div className="relative overflow-hidden rounded-[1.85rem]">
+                <img
+                  src={layer.src}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover"
+                  style={{ aspectRatio: '4 / 5' }}
+                />
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
 
         {beat?.kicker || beat?.line ? (
           <div
@@ -307,7 +315,7 @@ function ParallaxCollage({ images, beat, density = 'dense' }) {
             }`}
           >
             <div
-              className="space-y-2 rounded-3xl border border-blush/20 bg-espresso/55 px-6 py-5 text-center text-blush/90 backdrop-blur-sm"
+              className="space-y-2 rounded-3xl border border-blush/20 bg-espresso/65 px-6 py-5 text-center text-blush/90 backdrop-blur-sm"
               style={{
                 transform: 'translate3d(calc(var(--p) * 10px), calc(var(--p) * 8px), 0)',
               }}
@@ -371,7 +379,6 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
         captionKey: 'pages.story.chapter2.gallery.futureLabel',
         variant: 'slideLeft',
         align: 'center',
-        beatIndex: 2,
       },
       {
         src: pick(5),
@@ -419,6 +426,7 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
           images={homeBackgrounds}
           density="dense"
           beat={Array.isArray(beats) ? beats[4] : undefined}
+          beatPlacement="bottom"
         />
 
         {panels.map((panel) => (
@@ -443,6 +451,7 @@ export function StoryPage({ onNavigateHome, onOpenSection }) {
           images={[...homeBackgrounds, ...homeBackgrounds].slice(0, 12)}
           density="airy"
           beat={Array.isArray(beats) ? beats[2] : undefined}
+          beatPlacement="bottom"
         />
 
         <section className="relative bg-espresso">
