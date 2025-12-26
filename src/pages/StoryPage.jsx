@@ -129,19 +129,17 @@ function StoryImagePanel({
 
   const variantClasses = variants[variant] ?? variants.drift
 
-  const captionAlignment =
-    align === 'center'
-      ? 'left-1/2 -translate-x-1/2 text-center'
-      : align === 'right'
-        ? 'right-6 text-right'
-        : 'left-6 text-left'
-
   const beatAlignment =
     align === 'center'
       ? 'left-1/2 -translate-x-1/2 text-center'
       : align === 'right'
         ? 'right-6 text-right'
         : 'left-6 text-left'
+
+  const stackAlignment =
+    align === 'center' ? 'items-center text-center' : align === 'right' ? 'items-end text-right' : 'items-start text-left'
+
+  const parallaxX = align === 'left' ? 12 : align === 'right' ? -12 : 0
 
   const containerClassName = `relative -mx-6 sm:-mx-10 ${heightClass}`
   const frameClassName = sticky ? 'sticky top-0 h-full overflow-hidden' : 'relative h-full overflow-hidden'
@@ -153,7 +151,7 @@ function StoryImagePanel({
           <div
             className="absolute inset-0"
             style={{
-              transform: 'translate3d(0, calc(var(--p) * -18px), 0)',
+              transform: `translate3d(calc(var(--p) * ${parallaxX}px), calc(var(--p) * -42px), 0) scale(1.03)`,
             }}
           >
             <img
@@ -177,31 +175,34 @@ function StoryImagePanel({
 
         {children ? <div className="relative z-10 h-full">{children}</div> : null}
 
-        {beat?.kicker || beat?.line ? (
+        {beat?.kicker || beat?.line || caption ? (
           <div
-            className={`pointer-events-none absolute top-24 ${beatAlignment} z-10 max-w-[min(46rem,calc(100%-3rem))] transform transition-all duration-700 ease-out ${
-              isVisible ? 'translate-y-0 opacity-100' : '-translate-y-3 opacity-0'
-            }`}
-          >
-            <div className="space-y-2 rounded-3xl border border-blush/20 bg-espresso/55 px-6 py-5 text-blush/90 backdrop-blur-sm">
-              {beat.kicker ? (
-                <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-blush/70 sm:text-xs">
-                  {beat.kicker}
-                </p>
-              ) : null}
-              {beat.line ? <p className="text-base leading-relaxed text-blush/90 sm:text-lg">{beat.line}</p> : null}
-            </div>
-          </div>
-        ) : null}
-
-        {caption ? (
-          <div
-            className={`pointer-events-none absolute bottom-10 ${captionAlignment} z-10 max-w-[min(42rem,calc(100%-3rem))] transform transition-all duration-700 ease-out ${
+            className={`pointer-events-none absolute bottom-[calc(env(safe-area-inset-bottom)+1.25rem)] ${beatAlignment} z-10 max-w-[min(46rem,calc(100%-3rem))] transform transition-all duration-700 ease-out ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
             }`}
+            style={{
+              transform: isVisible
+                ? `translate3d(calc(var(--p) * ${-parallaxX}px), calc(var(--p) * 10px), 0)`
+                : undefined,
+            }}
           >
-            <div className="inline-flex items-center gap-2 rounded-full border border-blush/20 bg-espresso/55 px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-blush/85 backdrop-blur-sm sm:text-xs">
-              {caption}
+            <div className={`flex max-w-full flex-col gap-3 ${stackAlignment}`}>
+              {beat?.kicker || beat?.line ? (
+                <div className="space-y-2 rounded-3xl border border-blush/20 bg-espresso/55 px-6 py-5 text-blush/90 backdrop-blur-sm">
+                  {beat.kicker ? (
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-blush/70 sm:text-xs">
+                      {beat.kicker}
+                    </p>
+                  ) : null}
+                  {beat.line ? <p className="text-base leading-relaxed text-blush/90 sm:text-lg">{beat.line}</p> : null}
+                </div>
+              ) : null}
+
+              {caption ? (
+                <div className="inline-flex items-center gap-2 rounded-full border border-blush/20 bg-espresso/55 px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-blush/85 backdrop-blur-sm sm:text-xs">
+                  {caption}
+                </div>
+              ) : null}
             </div>
           </div>
         ) : null}
@@ -276,9 +277,12 @@ function ParallaxCollage({ images, beat, density = 'dense' }) {
 
         {beat?.kicker || beat?.line ? (
           <div
-            className={`pointer-events-none absolute left-1/2 top-20 z-20 w-[min(46rem,calc(100%-3rem))] -translate-x-1/2 transform transition-all duration-700 ease-out ${
-              isVisible ? 'translate-y-0 opacity-100' : '-translate-y-3 opacity-0'
+            className={`pointer-events-none absolute bottom-[calc(env(safe-area-inset-bottom)+1.25rem)] left-1/2 z-20 w-[min(46rem,calc(100%-3rem))] -translate-x-1/2 transform transition-all duration-700 ease-out ${
+              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
             }`}
+            style={{
+              transform: isVisible ? 'translate3d(calc(-50% + (var(--p) * 10px)), calc(var(--p) * 8px), 0)' : undefined,
+            }}
           >
             <div className="space-y-2 rounded-3xl border border-blush/20 bg-espresso/55 px-6 py-5 text-center text-blush/90 backdrop-blur-sm">
               {beat.kicker ? (

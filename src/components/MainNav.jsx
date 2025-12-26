@@ -92,7 +92,7 @@ export function MainNav({ onOpenSection, currentPage, showLogo = false, isFixed 
         />
       ) : null}
 
-      <div className={`container-app relative z-40 ${showLogo ? 'py-6 sm:py-8' : 'py-4'}`}>
+      <div className={`container-app relative z-40 ${showLogo ? 'py-4 sm:py-5' : 'py-3 sm:py-4'}`}>
         <div className={`flex items-center ${showLogo ? 'justify-between' : 'justify-end'} sm:hidden`}>
           {showLogo ? (
             <button
@@ -100,7 +100,7 @@ export function MainNav({ onOpenSection, currentPage, showLogo = false, isFixed 
               onClick={handleNavigateHomeSafe}
               className="flex items-center justify-center rounded-xl transition-transform duration-200 hover:scale-[1.02]"
             >
-              <img src={logoMark} alt="Ivy & Nina" className="h-28 w-auto" />
+              <img src={logoMark} alt="Ivy & Nina" className="h-20 w-auto" />
             </button>
           ) : null}
 
@@ -149,7 +149,7 @@ export function MainNav({ onOpenSection, currentPage, showLogo = false, isFixed 
               onClick={handleNavigateHomeSafe}
               className="flex items-center justify-center rounded-xl transition-transform duration-200 hover:scale-[1.02] sm:justify-start"
             >
-              <img src={logoMark} alt="Ivy & Nina" className="h-32 w-auto sm:h-44" />
+              <img src={logoMark} alt="Ivy & Nina" className="h-24 w-auto sm:h-32" />
             </button>
           ) : (
             <div className="hidden sm:block" aria-hidden="true" />
