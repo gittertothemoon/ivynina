@@ -66,6 +66,10 @@ function useScrollCssVariable(ref, variable = '--p') {
       const centered = (clamped - 0.5) * 2
 
       element.style.setProperty(variable, centered.toFixed(4))
+
+      const topProgressRaw = (viewportHeight - rect.top) / viewportHeight
+      const topProgress = Math.max(0, Math.min(1, topProgressRaw))
+      element.style.setProperty('--tp', topProgress.toFixed(4))
     }
 
     const onScroll = () => {
@@ -92,8 +96,8 @@ function StoryImagePanel({
   overlayClassName,
   align = 'left',
   variant = 'drift',
-  sticky = false,
-  heightClass = 'h-[100svh]',
+  sticky = true,
+  heightClass = 'h-[106svh] sm:h-[108svh]',
   children,
 }) {
   const ref = useRef(null)
@@ -102,28 +106,28 @@ function StoryImagePanel({
 
   const variants = {
     drift: {
-      hidden: 'scale-[1.08] translate-y-6 blur-sm',
-      visible: 'scale-100 translate-y-0 blur-0',
+      hidden: 'scale-[1.06] translate-y-6 opacity-0',
+      visible: 'scale-100 translate-y-0 opacity-100',
     },
     slideLeft: {
-      hidden: 'scale-[1.06] -translate-x-10 blur-sm',
-      visible: 'scale-100 translate-x-0 blur-0',
+      hidden: 'scale-[1.04] -translate-x-10 opacity-0',
+      visible: 'scale-100 translate-x-0 opacity-100',
     },
     slideRight: {
-      hidden: 'scale-[1.06] translate-x-10 blur-sm',
-      visible: 'scale-100 translate-x-0 blur-0',
+      hidden: 'scale-[1.04] translate-x-10 opacity-0',
+      visible: 'scale-100 translate-x-0 opacity-100',
     },
     tilt: {
-      hidden: 'scale-[1.07] rotate-1 blur-sm',
-      visible: 'scale-100 rotate-0 blur-0',
+      hidden: 'scale-[1.05] rotate-1 opacity-0',
+      visible: 'scale-100 rotate-0 opacity-100',
     },
     focus: {
-      hidden: 'scale-[1.06] blur-sm saturate-125 contrast-125',
-      visible: 'scale-100 blur-0 saturate-100 contrast-100',
+      hidden: 'scale-[1.04] opacity-0 saturate-125 contrast-125',
+      visible: 'scale-100 opacity-100 saturate-100 contrast-100',
     },
     kenBurns: {
-      hidden: 'opacity-0 blur-sm',
-      visible: 'opacity-100 blur-0 ken-burns-zoom-in',
+      hidden: 'opacity-0',
+      visible: 'opacity-100 ken-burns-zoom-in',
     },
   }
 
@@ -133,25 +137,38 @@ function StoryImagePanel({
     align === 'center'
       ? 'left-1/2 -translate-x-1/2 text-center'
       : align === 'right'
-        ? 'right-6 text-right'
-        : 'left-6 text-left'
+        ? 'left-1/2 -translate-x-1/2 text-center sm:left-auto sm:right-8 sm:translate-x-0 sm:text-right'
+        : 'left-1/2 -translate-x-1/2 text-center sm:left-8 sm:translate-x-0 sm:text-left'
 
   const stackAlignment =
-    align === 'center' ? 'items-center text-center' : align === 'right' ? 'items-end text-right' : 'items-start text-left'
+    align === 'center'
+      ? 'items-center text-center'
+      : align === 'right'
+        ? 'items-center text-center sm:items-end sm:text-right'
+        : 'items-center text-center sm:items-start sm:text-left'
 
-  const parallaxX = align === 'left' ? 12 : align === 'right' ? -12 : 0
+  const parallaxX = align === 'left' ? 14 : align === 'right' ? -14 : 0
+  const parallaxRotate = variant === 'tilt' ? 1.1 : 0.55
 
   const containerClassName = `relative -mx-6 sm:-mx-10 ${heightClass}`
-  const frameClassName = sticky ? 'sticky top-0 h-full overflow-hidden' : 'relative h-full overflow-hidden'
+  const frameClassName = sticky ? 'sticky top-0 h-[100svh] overflow-hidden' : 'relative h-full overflow-hidden'
+
+  const fadeStop = 'calc(((1 - var(--tp)) * 14%) + 0.5%)'
 
   return (
     <section className={containerClassName} ref={ref}>
       <div className={frameClassName}>
-        <div className="absolute inset-0 overflow-hidden">
+        <div
+          className="absolute inset-0 overflow-hidden"
+          style={{
+            maskImage: `linear-gradient(to bottom, transparent 0%, rgba(0,0,0,1) ${fadeStop}, rgba(0,0,0,1) 100%)`,
+            WebkitMaskImage: `linear-gradient(to bottom, transparent 0%, rgba(0,0,0,1) ${fadeStop}, rgba(0,0,0,1) 100%)`,
+          }}
+        >
           <div
             className="absolute inset-0"
             style={{
-              transform: `translate3d(calc(var(--p) * ${parallaxX}px), calc(var(--p) * -42px), 0) scale(1.03)`,
+              transform: `translate3d(calc(var(--p) * ${parallaxX}px), calc(var(--p) * -54px), 0) scale(1.06) rotate(calc(var(--p) * ${parallaxRotate}deg))`,
             }}
           >
             <img
@@ -180,13 +197,13 @@ function StoryImagePanel({
             className={`pointer-events-none absolute bottom-[calc(env(safe-area-inset-bottom)+1.25rem)] ${beatAlignment} z-10 max-w-[min(46rem,calc(100%-3rem))] transform transition-all duration-700 ease-out ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
             }`}
-            style={{
-              transform: isVisible
-                ? `translate3d(calc(var(--p) * ${-parallaxX}px), calc(var(--p) * 10px), 0)`
-                : undefined,
-            }}
           >
-            <div className={`flex max-w-full flex-col gap-3 ${stackAlignment}`}>
+            <div
+              className={`flex max-w-full flex-col gap-3 ${stackAlignment}`}
+              style={{
+                transform: `translate3d(calc(var(--p) * ${-parallaxX}px), calc(var(--p) * 10px), 0)`,
+              }}
+            >
               {beat?.kicker || beat?.line ? (
                 <div className="space-y-2 rounded-3xl border border-blush/20 bg-espresso/55 px-6 py-5 text-blush/90 backdrop-blur-sm">
                   {beat.kicker ? (
@@ -242,9 +259,17 @@ function ParallaxCollage({ images, beat, density = 'dense' }) {
     return density === 'dense' ? denseLayers : airyLayers
   }, [density, images])
 
+  const fadeStop = 'calc(((1 - var(--tp)) * 14%) + 0.5%)'
+
   return (
-    <section className="relative -mx-6 sm:-mx-10 h-[100svh]" ref={ref}>
-      <div className="relative h-full overflow-hidden">
+    <section className="relative -mx-6 sm:-mx-10 h-[106svh] sm:h-[108svh]" ref={ref}>
+      <div
+        className="sticky top-0 h-[100svh] overflow-hidden"
+        style={{
+          maskImage: `linear-gradient(to bottom, transparent 0%, rgba(0,0,0,1) ${fadeStop}, rgba(0,0,0,1) 100%)`,
+          WebkitMaskImage: `linear-gradient(to bottom, transparent 0%, rgba(0,0,0,1) ${fadeStop}, rgba(0,0,0,1) 100%)`,
+        }}
+      >
         <div className="absolute inset-0 bg-section-texture opacity-80" aria-hidden="true" />
 
         {layers.map((layer) => (
@@ -259,7 +284,7 @@ function ParallaxCollage({ images, beat, density = 'dense' }) {
               width: layer.w,
               maxWidth: layer.maxW,
               zIndex: layer.z,
-              transform: `translate3d(calc(-50% + (var(--p) * ${layer.dx}px)), calc(-50% + (var(--p) * ${layer.dy}px)), 0) rotate(${layer.rot}deg)`,
+              transform: `translate3d(calc(-50% + (var(--p) * ${layer.dx}px)), calc(-50% + (var(--p) * ${layer.dy}px)), 0) rotate(calc(${layer.rot}deg + (var(--p) * 0.7deg)))`,
             }}
           >
             <div className="relative overflow-hidden rounded-[1.85rem]">
@@ -280,11 +305,13 @@ function ParallaxCollage({ images, beat, density = 'dense' }) {
             className={`pointer-events-none absolute bottom-[calc(env(safe-area-inset-bottom)+1.25rem)] left-1/2 z-20 w-[min(46rem,calc(100%-3rem))] -translate-x-1/2 transform transition-all duration-700 ease-out ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
             }`}
-            style={{
-              transform: isVisible ? 'translate3d(calc(-50% + (var(--p) * 10px)), calc(var(--p) * 8px), 0)' : undefined,
-            }}
           >
-            <div className="space-y-2 rounded-3xl border border-blush/20 bg-espresso/55 px-6 py-5 text-center text-blush/90 backdrop-blur-sm">
+            <div
+              className="space-y-2 rounded-3xl border border-blush/20 bg-espresso/55 px-6 py-5 text-center text-blush/90 backdrop-blur-sm"
+              style={{
+                transform: 'translate3d(calc(var(--p) * 10px), calc(var(--p) * 8px), 0)',
+              }}
+            >
               {beat.kicker ? (
                 <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-blush/70 sm:text-xs">
                   {beat.kicker}
